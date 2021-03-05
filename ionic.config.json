@@ -1,0 +1,7 @@
+{
+  "name": "frontLibam",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
