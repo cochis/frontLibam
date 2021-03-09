@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "school",
+    "name": "Home",
+    "redirectTo": "/home"
+  },
+  {
+    "icon": "ribbon",
+    "name": "Conocenos",
+    "redirectTo": "/conocenos"
+  },
+  {
+    "icon": "book",
+    "name": "Oferta",
+    "redirectTo": "/oferta"
+  },
+  {
+    "icon": "mail",
+    "name": "Contacto",
+    "redirectTo": "/contacto"
+  }
+]

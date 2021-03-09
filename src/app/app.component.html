@@ -1,3 +1,36 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<ion-app (window:resize)="onResize($event)">
+  <ion-menu side="start" menuId="first" contentId="main" *ngIf="!flagScreen">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-menu-toggle *ngFor="let c of componentes  " autoHide="false">
+        <ion-item [routerLink]="c.redirectTo" detail>
+          <ion-icon [name]="c.icon" slot="start" color="primary"></ion-icon>
+          {{ c.name }}
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+   
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    
+    <ion-fab-button>
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button color="facebook" [href]="'https://www.facebook.com/colibertadoresdeamerica/'" target="_blank"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+      <ion-fab-button color="whatsapp" [href]="'https://api.whatsapp.com/send?phone=525515380666&text=Gracias%20por%20comunicarte%20con%20el%20Colegio%20Libertadores%20de%20Am%C3%A9rica%20en%20un%20momento%20nos%20comunicaremos%20con%20usted.'" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></ion-fab-button>
+      <ion-fab-button color="facebook" [href]="'https://maps.app.goo.gl/KkTFkqZ8X7z4h6pa9'" target="_blank"><ion-icon name="location-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+
+ 
+ 
+
+  </ion-fab>
+ 
 </ion-app>
