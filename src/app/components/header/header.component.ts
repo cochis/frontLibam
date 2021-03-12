@@ -1,6 +1,8 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Componente } from '../../interfaces/interfaces';
+import { Router } from '@angular/router';
+import * as SecureLS from 'secure-ls';
 
 @Component({
   selector: 'app-header',
@@ -11,22 +13,32 @@ export class HeaderComponent implements OnInit {
   @Input() titulo: string = '';
   flagScreen: boolean = false;
   componentes: Componente[];
-  constructor(private dataService:DataService) { 
+  ls = new SecureLS({ encodingType: 'aes' });
+  menuItems: any;
+  constructor(
+    private dataService: DataService,
+    private router: Router) {
     if (screen.width > 780) {
       this.flagScreen = true;
     }
 
   }
-  
+
   ngOnInit() {
-    
-    this.dataService.getMenuOpts().subscribe(response => {
-      console.log(response);
-      this.componentes = response;
-      console.log(this.componentes);
-    }, error => {
-      console.log(error);
-    });
+
+    this.menuItems = this.ls.get("menuItems");
+    if (this.menuItems != null && this.menuItems != undefined) {
+      this.componentes = this.menuItems;
+    } else {
+      this.dataService.getMenuOpts().subscribe(response => {
+        console.log(response);
+        this.componentes = response;
+        console.log(this.componentes);
+      }, error => {
+        console.log(error);
+      });
+    }
+
 
     if (screen.width > 780) {
       this.flagScreen = true;
@@ -40,6 +52,10 @@ export class HeaderComponent implements OnInit {
       this.flagScreen = false;
     }
     console.log(this.flagScreen);
+  }
+  navigateTo(link) {
+    console.log(link);
+    this.router.navigate([link]);
   }
 
 }

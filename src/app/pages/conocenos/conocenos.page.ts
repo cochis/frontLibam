@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FunctionService } from '../../services/functions';
 
 @Component({
   selector: 'app-conocenos',
@@ -6,43 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conocenos.page.scss'],
 })
 export class ConocenosPage implements OnInit {
-  slides: { img: string, titulo: string, desc: string }[] = [
-    {
-      img: '/assets/img/img5.jpg',
-      titulo: '1er. Lugar en olimpiada del conocimiento',
-      desc: 'Gracias al esfuerzo de nuestros padres y maestros hemos obtenino varios premios'
-    },
-    {
-      img: '/assets/img/img1.jpg',
-      titulo: 'Equipo de olimpiadas del conocimiento ',
-      desc: 'Siempre sabremos donde estás!'
-    },
-    {
-      img: '/assets/img/img2.jpg',
-      titulo: 'Nuestro equipo docente',
-      desc: 'Nuestra plantilla es titulada'
-    },
-    {
-      img: '/assets/img/img3.jpg',
-      titulo: 'Deporte',
-      desc: 'Tenemos en cuenta que para una educación integral es necesaría la actividad fisica'
-    },
-    {
-      img: '/assets/img/img4.jpg',
-      titulo: 'Eventos',
-      desc: 'Donde los alumnos aplican sus conocimientos , fisicos , mentales o artisticos'
+  
+  flagScreen: boolean = false;
+  constructor(
+    private functionService: FunctionService,
+  ) {
+    if (screen.width > 780) {
+      this.flagScreen = true;
     }
-    
-  ];
-  slideOptsOne = {
-    initialSlide: 0,
-    slidesPerView: 1,
-    autoplay:true,
-    speed: 5000
-   };
-  constructor() { }
+   }
 
   ngOnInit() {
+  }
+  onResize(event) {
+    this.flagScreen = this.functionService.onResize(event);
+    console.log(this.functionService.onResize(event));
+    
   }
 
 }

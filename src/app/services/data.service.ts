@@ -10,10 +10,7 @@ export class DataService {
   constructor( private http: HttpClient ) { }
  
   getMenuOpts() {
-    return this.http.get<Componente[]>('/assets/data/menu-opts.json')
-    .pipe(
-      delay( 4000 )
-    );;
+    return this.http.get<Componente[]>('/assets/data/menu-opts.json') ;
   }
 
   

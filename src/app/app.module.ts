@@ -7,6 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +16,9 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [BrowserModule, 
             IonicModule.forRoot(), 
             AppRoutingModule,
-            HttpClientModule
+            HttpClientModule,
+            ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+            // ServiceWorkerModule.register('ngsw-worker.js', {   }),
 
           ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

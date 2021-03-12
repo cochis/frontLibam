@@ -1,46 +1,25 @@
-<ion-header >
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button menu="first"></ion-menu-button>
-    </ion-buttons>
-    <ion-title>LIBAM</ion-title>
-    <!-- <ion-title>Colegio Libertadores de América</ion-title> -->
-  </ion-toolbar>
-</ion-header>
-<ion-content>
+<app-header></app-header>
+<ion-content  (window:resize)="onResize($event)"> 
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12" class="center">
         <h1 class="initTitle">Colegio Libertadores de América</h1>
-        <img src="/assets/img/logo/logo.jpg">
+        <img src="/assets/img/logo/l_200.png">
       </ion-col>
       <!-- *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1,1]" -->
       <!-- <ion-col size="12" size-lg="3" size-md="4" size-sm="6" > -->
         <ion-col size="12" class="center">
  
-    <h4 class="filosofia">
-      "¡FORMANDO LIDERES QUE CAMBIARAN AL MUNDO!"
+    <h4 class="filosofia ">
+       ¡FORMANDO LIDERES QUE CAMBIARAN AL MUNDO! 
   </h4>
-    <p>Contribuir a formar generaciones de alumnos de educación básica, con un nivel académico y cultural de excelencia, con principios y valores sólidos, en un ambiente armónico, con orden, disciplina y respeto, capaces de trascender como ciudadanos responsables del mundo, participando en los cambios culturales, sociales, tecnológicos y políticos de su comunidad.</p>
-        <ion-slides pager="ios" class="slide-full por100" [options]="slideOptsOne">
-          <ion-slide *ngFor="let slide of slides">
-            <ion-card mode="ios">
-              <img [src]="slide.img" class="slide-image imgSlide1"   />
-              <ion-card-header>
-                <ion-card-subtitle>{{ slide.titulo }}</ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                {{ slide.desc }}
-              </ion-card-content>
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <img src="/assets/img/logo/logo.jpg"  (click)="onClick()" />
-          </ion-slide>
-        </ion-slides>
+    <p style="text-align: justify;">Contribuir a formar generaciones de alumnos de educación básica, con un nivel académico y cultural de excelencia, con principios y valores sólidos, en un ambiente armónico, con orden, disciplina y respeto, capaces de trascender como ciudadanos responsables del mundo, participando en los cambios culturales, sociales, tecnológicos y políticos de su comunidad.</p>
       </ion-col>
     </ion-row>
   </ion-grid>
-
- 
+  <div class="container70">
+    <app-slider></app-slider>
+  </div>
+  <app-footer *ngIf="flagScreen"></app-footer> 
 </ion-content>
+<app-footer-mobile *ngIf="!flagScreen"></app-footer-mobile> 
