@@ -20,7 +20,7 @@ export class AppComponent {
     private dataService: DataService,
     public loadingCtrl: LoadingController,
     public functionService:FunctionService,
-    // private swUpdate: SwUpdate
+    private swUpdate: SwUpdate
   ) {
     if (screen.width > 780) {
       this.flagScreen = true;
@@ -64,10 +64,10 @@ export class AppComponent {
     console.log(this.functionService.onResize(event));
     
   }
-  // updatePWA() {
-  //   this.swUpdate.available.subscribe(() => {
-  //     window.location.reload();
-  //   });
-  // }
+  updatePWA() {
+    this.swUpdate.available.subscribe(() => {
+      window.location.reload();
+    });
+  }
   
 }
