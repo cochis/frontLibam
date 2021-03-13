@@ -13,10 +13,12 @@
 
   <div id="menu" class="center" *ngIf="flagScreen"   style="border-bottom: 4px solid #bb1100"
 >
-    <img src="/assets/img/logo/text.png" style="width: 380px; margin-top:15px" />
+    
     <div style="line-height: 50px;">
+      <a   routerLink="'/home'" routerLinkActive="active"
+        (click)="navigateTo('/home')"><img src="/assets/img/logo/l_100.png" style="max-width: 80px;margin-top: 15px;"/> </a>
       <ion-button color="primary" *ngFor="let c of componentes" routerLink="'c.redirectTo'" routerLinkActive="active"
-        (click)="navigateTo(c.redirectTo)">{{ c.name }} </ion-button>
+        (click)="navigateTo(c.redirectTo)" style="margin-top:-70px">{{ c.name }} </ion-button>
     </div>
   </div>
 </ion-header>   

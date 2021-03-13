@@ -20,13 +20,15 @@ export class AppComponent {
     private dataService: DataService,
     public loadingCtrl: LoadingController,
     public functionService:FunctionService,
-    private swUpdate: SwUpdate
-  ) {
-    if (screen.width > 780) {
-      this.flagScreen = true;
-    }
-
-  }
+    private readonly updates: SwUpdate) {
+      this.updates.available.subscribe(event => {
+        this.showAppUpdateAlert();
+        if (screen.width > 780) {
+          this.flagScreen = true;
+        }
+      });
+    } 
+  
 
 
   ngOnInit(): void {
@@ -64,10 +66,16 @@ export class AppComponent {
     console.log(this.functionService.onResize(event));
     
   }
-  updatePWA() {
-    this.swUpdate.available.subscribe(() => {
-      window.location.reload();
-    });
+  showAppUpdateAlert() {
+    const header = 'App Update available';
+    const message = 'Choose Ok to update';
+    const action = this.doAppUpdate;
+    const caller = this;
+    // Use MatDialog or ionicframework's AlertController or similar
+    console.log(header, message, action, caller);
   }
+  doAppUpdate() {
+      this.updates.activateUpdate().then(() => document.location.reload());
+    }
   
 }
