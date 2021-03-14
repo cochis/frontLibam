@@ -13,7 +13,6 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() { }
   navigateTo(link) {
-    console.log(link);
     this.router.navigate([link]);
   }
 }

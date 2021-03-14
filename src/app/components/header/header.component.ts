@@ -31,9 +31,7 @@ export class HeaderComponent implements OnInit {
       this.componentes = this.menuItems;
     } else {
       this.dataService.getMenuOpts().subscribe(response => {
-        console.log(response);
         this.componentes = response;
-        console.log(this.componentes);
       }, error => {
         console.log(error);
       });
@@ -51,10 +49,8 @@ export class HeaderComponent implements OnInit {
     } else {
       this.flagScreen = false;
     }
-    console.log(this.flagScreen);
   }
   navigateTo(link) {
-    console.log(link);
     this.router.navigate([link]);
   }
 

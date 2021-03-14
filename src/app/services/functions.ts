@@ -18,8 +18,6 @@ export class FunctionService {
     } else {
       flagScreen = false;
     }
-    console.log(flagScreen);
-
     return flagScreen;
   }
 

@@ -21,8 +21,6 @@ export class ConocenosPage implements OnInit {
   }
   onResize(event) {
     this.flagScreen = this.functionService.onResize(event);
-    console.log(this.functionService.onResize(event));
-    
   }
 
 }

@@ -27,8 +27,6 @@ export class ContactoPage implements OnInit {
   ngOnInit() {
   }
   onSubmit(formulario: NgForm) {
-    console.log('submit');
-
     console.log(formulario.form.value);
   }
   buildForm() {
@@ -42,8 +40,6 @@ export class ContactoPage implements OnInit {
 
   onResize(event) {
     this.flagScreen = this.functionService.onResize(event);
-    console.log(this.functionService.onResize(event));
-
   }
 
 }

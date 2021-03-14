@@ -5,6 +5,7 @@ import { Componente } from './interfaces/interfaces';
 import { DataService } from './services/data.service';
 import { FunctionService } from './services/functions';
 import { SwUpdate } from '@angular/service-worker';
+import { CheckForUpdateService } from './services/check-for-update.service';
 
 @Component({
   selector: 'app-root',
@@ -16,25 +17,27 @@ export class AppComponent {
   flagScreen: boolean = false;
   componentes: Componente[];
   ls = new SecureLS({ encodingType: 'aes' });
+  title = 'Libam';
+  updateAvailable = false;
   constructor(
     private dataService: DataService,
     public loadingCtrl: LoadingController,
-    public functionService:FunctionService,
-    private readonly updates: SwUpdate) {
-      this.updates.available.subscribe(event => {
-        this.showAppUpdateAlert();
-        if (screen.width > 780) {
-          this.flagScreen = true;
-        }
-      });
-    } 
-  
+    public functionService: FunctionService,
+    private updates: SwUpdate,
+    private checkForUpdateService: CheckForUpdateService) {
+    if (screen.width > 780) {
+      this.flagScreen = true;
+    }
+    this.updates.available.subscribe((event) => {
+      this.updateAvailable = true;
+    });
+  }
+
 
 
   ngOnInit(): void {
 
 
-    console.log(this.flagScreen);
     this.presentLoading();
 
     this.dataService.getMenuOpts().subscribe(response => {
@@ -63,19 +66,11 @@ export class AppComponent {
 
   onResize(event) {
     this.flagScreen = this.functionService.onResize(event);
-    console.log(this.functionService.onResize(event));
-    
+
   }
-  showAppUpdateAlert() {
-    const header = 'App Update available';
-    const message = 'Choose Ok to update';
-    const action = this.doAppUpdate;
-    const caller = this;
-    // Use MatDialog or ionicframework's AlertController or similar
-    console.log(header, message, action, caller);
-  }
+ 
   doAppUpdate() {
-      this.updates.activateUpdate().then(() => document.location.reload());
-    }
-  
+    this.updates.activateUpdate().then(() => document.location.reload());
+  }
+
 }

@@ -15,22 +15,22 @@ export class SliderComponent implements OnInit {
       desc: 'Gracias al esfuerzo de nuestros padres y maestros hemos obtenino varios premios'
     },
     {
-      img: '/assets/img/img1.jpg',
+      img: '/assets/img/ninos2.png',
       titulo: 'Equipo de olimpiadas del conocimiento ',
       desc: 'Siempre sabremos donde estás!'
     },
     {
-      img: '/assets/img/img1.jpg',
+      img: '/assets/img/ninos2.png',
       titulo: 'Nuestro equipo docente',
       desc: 'Nuestra plantilla es titulada'
     },
     {
-      img: '/assets/img/img1.jpg',
+      img: '/assets/img/ninos2.png',
       titulo: 'Deporte',
       desc: 'Tenemos en cuenta que para una educación integral es necesaría la actividad fisica'
     },
     {
-      img: '/assets/img/img1.jpg',
+      img: '/assets/img/ninos2.png',
       titulo: 'Eventos',
       desc: 'Donde los alumnos aplican sus conocimientos , fisicos , mentales o artisticos'
     }
