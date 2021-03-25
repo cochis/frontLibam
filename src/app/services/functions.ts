@@ -3,12 +3,14 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SeoService } from './seo.service';
 @Injectable({
   providedIn: 'root'
 })
 export class FunctionService {
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient,
+    private seo: SeoService ) { }
  
   onResize(event) {
     var flagScreen;
@@ -19,6 +21,9 @@ export class FunctionService {
       flagScreen = false;
     }
     return flagScreen;
+  }
+  createLinkForCanonicalURL() {
+    this.seo.createLinkForCanonicalURL();
   }
 
   

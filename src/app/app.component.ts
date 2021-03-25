@@ -5,7 +5,8 @@ import { Componente } from './interfaces/interfaces';
 import { DataService } from './services/data.service';
 import { FunctionService } from './services/functions';
 import { SwUpdate } from '@angular/service-worker';
-import { CheckForUpdateService } from './services/check-for-update.service';
+import { PushService } from './services/push.service';
+
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,8 @@ export class AppComponent {
     public loadingCtrl: LoadingController,
     public functionService: FunctionService,
     private updates: SwUpdate,
-    private checkForUpdateService: CheckForUpdateService) {
+    private pushService: PushService,
+  ) {
     if (screen.width > 780) {
       this.flagScreen = true;
     }
@@ -37,18 +39,8 @@ export class AppComponent {
 
   ngOnInit(): void {
 
+    this.initializeApp();
 
-    this.presentLoading();
-
-    this.dataService.getMenuOpts().subscribe(response => {
-
-      this.componentes = response;
-      this.ls.set("menuItems", this.componentes);
-
-    }, error => {
-
-      console.log(error);
-    });
 
   }
 
@@ -68,9 +60,25 @@ export class AppComponent {
     this.flagScreen = this.functionService.onResize(event);
 
   }
- 
+
   doAppUpdate() {
     this.updates.activateUpdate().then(() => document.location.reload());
+  }
+
+  initializeApp() {
+    this.presentLoading();
+
+    this.dataService.getMenuOpts().subscribe(response => {
+
+      this.componentes = response;
+      this.ls.set("menuItems", this.componentes);
+      this.pushService.configuracionInicial();
+
+    }, error => {
+
+      console.log(error);
+    });
+
   }
 
 }
