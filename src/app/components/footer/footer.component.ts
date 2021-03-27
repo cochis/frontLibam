@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FunctionService } from '../../services/functions';
 
 @Component({
   selector: 'app-footer',
@@ -9,10 +10,12 @@ import { Router } from '@angular/router';
 export class FooterComponent implements OnInit {
 
   constructor(
-    private router: Router) { }
+    private router: Router,
+    private functionService:FunctionService) { }
 
   ngOnInit() { }
   navigateTo(link) {
-    this.router.navigate([link]);
+    this.functionService.navigateTo(link);
+   
   }
 }

@@ -1,43 +1,48 @@
- 
-   
-   #menu {
-       width: 100%;
-   }
-   nav{
-    display:inline-block;
-    width: 100%;
-    background-color:#019342;
-    box-shadow:0 1px 1px #ccc;
-    border-radius:2px;
-   }
-   
-   nav a{
-    display:inline-block;
-    padding: 18px 30px;
-    color:#fff !important;
-    font-weight:bold;
-    font-size:12px;
-    text-decoration:none !important;
-    line-height:1;
-    text-transform: uppercase;
-    background-color:transparent;
-   
-   -webkit-transition:background-color 0.25s;
-    -moz-transition:background-color 0.25s;
-    transition:background-color 0.25s;
-   }
-   
-   nav a:first-child{
-    border-radius:2px 0 0 2px;
-   }
-   
-   nav a:last-child{
-    border-radius:0 2px 2px 0;
-   }
-   
-   nav.home .home,
-   nav.projects .projects,
-   nav.services .services,
-   nav.contact .contact{
-    background-color:#e35885;
-   }
+#menu {
+  width: 100%;
+}
+nav {
+  display: inline-block;
+  width: 100%;
+  background-color: #019342;
+  box-shadow: 0 1px 1px #ccc;
+  border-radius: 2px;
+}
+
+nav li {
+  display: inline-block;
+  padding: 18px 30px;
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 12px;
+  text-decoration: none !important;
+  line-height: 1;
+  text-transform: uppercase;
+  background-color: transparent;
+
+  -webkit-transition: background-color 0.25s;
+  -moz-transition: background-color 0.25s;
+  transition: background-color 0.25s;
+}
+
+nav li:first-child {
+  border-radius: 2px 0 0 2px;
+}
+
+nav li:last-child {
+  border-radius: 0 2px 2px 0;
+}
+
+nav.home .home,
+nav.projects .projects,
+nav.services .services,
+nav.contact .contact {
+  background-color: #e35885;
+}
+
+li {
+  // line-height: 150px;
+  margin-top: 10px;
+  display: inline;
+  float: left;
+}

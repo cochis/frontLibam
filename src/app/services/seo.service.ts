@@ -19,7 +19,6 @@ export class SeoService {
     linkAlternate.setAttribute('hreflang', 'es-mx');
   }
   generateTags(config: any) {
-    console.log(config);
     config = {
       title: 'Colegio Libertadores de América | Preescolar  Primaria',
       description:

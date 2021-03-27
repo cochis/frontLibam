@@ -1,0 +1,17 @@
+
+<ion-menu side="start" menuId="first" contentId="main" *ngIf="!flagScreen"  >
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-menu-toggle *ngFor="let c of componentes  " autoHide="false">
+       
+      <ion-item *ngIf="c.activated && c.type==typeMenu" (click)="navigateTo(c.redirectTo)" detail>
+        <ion-icon [name]="c.icon" slot="start" color="primary"></ion-icon>
+        {{ c.name }}
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>

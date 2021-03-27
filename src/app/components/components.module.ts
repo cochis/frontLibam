@@ -7,13 +7,15 @@ import { FooterComponent } from './footer/footer.component';
 import { FooterMobileComponent } from './footer-mobile/footer-mobile.component';
 import { SliderComponent } from './slider/slider.component';
 import { OfertaCardsComponent } from './oferta-cards/oferta-cards.component';
+import { HeaderMobileComponent } from './header-mobile/header-mobile.component';
 
 @NgModule({
   declarations: [HeaderComponent,
                 FooterComponent,
                 FooterMobileComponent,
                 SliderComponent,
-                OfertaCardsComponent
+                OfertaCardsComponent,
+                HeaderMobileComponent
               ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { OfertaCardsComponent } from './oferta-cards/oferta-cards.component';
     FooterComponent,
     FooterMobileComponent,
     SliderComponent,
-    OfertaCardsComponent
+    OfertaCardsComponent,
+    HeaderMobileComponent
   ]
 })
 export class ComponentsModule { }

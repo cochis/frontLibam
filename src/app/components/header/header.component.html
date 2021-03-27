@@ -1,3 +1,4 @@
+
 <ion-header (window:resize)="onResize($event)">
 
   <ion-toolbar *ngIf="!flagScreen" color="primary" style="margin-bottom: -20px;">
@@ -6,19 +7,37 @@
       <ion-menu-button menu="first"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end" *ngIf="titulo">
-      <ion-back-button defaultHref="/" text="Inicio" color="secondary" mode="ios"></ion-back-button>
+      <ion-back-button (click)="navigateTo('/home')"  text="Inicio" color="secondary" mode="ios"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
   <!-- style="background-color: #019342;     margin-bottom: -20px;" -->
 
-  <div id="menu" class="center" *ngIf="flagScreen"   style="border-bottom: 4px solid #bb1100"
->
-    
-    <div style="line-height: 50px;">
-      <a   routerLink="'/home'" routerLinkActive="active"
-        (click)="navigateTo('/home')"><img src="/assets/img/logo/l_100.png" style="max-width: 80px;margin-top: 15px;"/> </a>
-      <ion-button color="primary" *ngFor="let c of componentes" routerLink="'c.redirectTo'" routerLinkActive="active"
-        (click)="navigateTo(c.redirectTo)" style="margin-top:-70px">{{ c.name }} </ion-button>
+  <div id="menu" class="container" *ngIf="flagScreen" style="height: 60px; border-bottom: 4px solid #bb1100">
+
+    <div style="line-height: 50px;margin: auto;" class="center">
+      <!-- <a routerLink="'/home'" routerLinkActive="active" (click)="navigateTo('/home')"><img
+          src="/assets/img/logo/l_100.png" style="max-width: 80px;margin-top: 15px;" /> </a> -->
+
+
+      <!-- <li *ngFor="let c of componentes">
+        <a *ngIf="c.activated" (click)="navigateTo(c.redirectTo)"> {{ c.name }} </a>
+      </li> -->
+      <ul class="center" style="margin-top: 80px; text-align: center;"> 
+        <li>
+          <a routerLink="'/home'" routerLinkActive="active" (click)="navigateTo('/home')"><img
+            src="/assets/img/logo/l_100.png" style="max-width: 80px; margin-top: -50px; " /> </a>
+        </li>
+        <li *ngFor="let c of componentes"> 
+          <ion-button color="primary" *ngIf="c.activated && c.type==typeMenu" routerLink="'c.redirectTo'" 
+            (click)="navigateTo(c.redirectTo)" style="margin-top:-70px">
+            <ion-icon name="{{c.icon}}" style="margin: 15px;"></ion-icon>{{ c.name }}
+          </ion-button>
+        </li>
+      </ul>
+
+
     </div>
   </div>
-</ion-header>   
+  
+</ion-header>
+

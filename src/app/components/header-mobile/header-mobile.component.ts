@@ -1,23 +1,23 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
-import { Componente } from '../../interfaces/interfaces';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as SecureLS from 'secure-ls';
+import { Componente } from '../../interfaces/interfaces';
+import { DataService } from '../../services/data.service';
 import { FunctionService } from '../../services/functions';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'app-header-mobile',
+  templateUrl: './header-mobile.component.html',
+  styleUrls: ['./header-mobile.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderMobileComponent implements OnInit {
   @Input() titulo: string = '';
   flagScreen: boolean = false;
   componentes: Componente[];
   ls = new SecureLS({ encodingType: 'aes' });
   menuItems: any;
-  currentUrl: string;
-  typeMenu: string;
+  currentUrl:string;
+  typeMenu:string;
   constructor(
     private dataService: DataService,
     private functionService: FunctionService,
@@ -25,19 +25,19 @@ export class HeaderComponent implements OnInit {
     if (screen.width > 780) {
       this.flagScreen = true;
     }
+
   }
 
   ngOnInit() {
     this.currentUrl = this.functionService.getCurrentUrl();
-    
-    if (this.currentUrl.includes("site")) {
+    if(this.currentUrl.includes("site")){
       this.typeMenu = 'site';
-    } else {
+    }else {
       this.typeMenu = 'general';
     }
-    this.ls.set("typeM", this.typeMenu);
+    this.ls.set("typeM",this.typeMenu);
     this.menuItems = this.ls.get("menuItems");
-
+    
     if (this.menuItems != null && this.menuItems != undefined) {
       this.componentes = this.menuItems;
     } else {
@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit {
   }
   navigateTo(link) {
     this.functionService.navigateTo(link);
-
+   
   }
 
 }

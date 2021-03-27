@@ -1,0 +1,45 @@
+<app-header style=" text-align: center; width: 100%;" titulo="Login"></app-header>
+
+
+<ion-content class="center" (window:resize)="onResize($event)">
+
+    <ion-col size="12" class="center" style="top: 0;">
+        <h4 class="theme" style="text-align:center">
+            Inicia sesión
+        </h4>
+
+
+    </ion-col>
+    <div class="container50">
+        <ion-col class="center">
+
+
+            <form size="12" size-md="6" sizeLg="4" #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+
+
+
+
+                <ion-item>
+                    <ion-label>Email:</ion-label>
+                    <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="usuario.email"
+                        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>Password:</ion-label>
+                    <ion-input type="password" name="password" [(ngModel)]="usuario.password" required
+                        placeholder="Contraseña">
+                    </ion-input>
+                </ion-item>
+
+
+                <ion-button color="secondary" [disabled]="formulario.invalid" type="submit" expand="block">
+                    Login
+                </ion-button>
+
+            </form>
+        </ion-col>
+    </div>
+    <app-footer *ngIf="flagScreen"></app-footer>
+    <app-footer-mobile *ngIf="!flagScreen"></app-footer-mobile>
+</ion-content>

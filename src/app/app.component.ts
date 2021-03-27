@@ -7,6 +7,7 @@ import { FunctionService } from './services/functions';
 import { SwUpdate } from '@angular/service-worker';
 import { PushService } from './services/push.service';
 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,30 +17,99 @@ import { PushService } from './services/push.service';
 export class AppComponent {
   loading: HTMLIonLoadingElement;
   flagScreen: boolean = false;
-  componentes: Componente[];
+  componentes: Componente[] = [];
   ls = new SecureLS({ encodingType: 'aes' });
   title = 'Libam';
   updateAvailable = false;
+  public currentUrl = '';
+  public typeMenu = '';
   constructor(
     private dataService: DataService,
     public loadingCtrl: LoadingController,
     public functionService: FunctionService,
     private updates: SwUpdate,
     private pushService: PushService,
+    private router: Router
+
   ) {
-    if (screen.width > 780) {
-      this.flagScreen = true;
-    }
-    this.updates.available.subscribe((event) => {
-      this.updateAvailable = true;
-    });
+
+
+
+
+
   }
 
 
 
   ngOnInit(): void {
+    console.log(this.componentes);
+    if (this.componentes === undefined) {
+      console.log("entro");
+      this.componentes = [
+        {
+          "icon": "school",
+          "name": "Inicio",
+          "redirectTo": "/home",
+          "type": "general",
+          "activated": true
+        },
+        {
+          "icon": "school",
+          "name": "Inicio",
+          "redirectTo": "/home",
+          "type": "site",
+          "activated": true
+        },
+        {
+          "icon": "ribbon",
+          "name": "Conocenos",
+          "redirectTo": "/conocenos",
+          "type": "general",
+          "activated": true
+        },
+        {
+          "icon": "book",
+          "name": "Oferta",
+          "redirectTo": "/oferta",
+          "type": "general",
+          "activated": true
+        },
+        {
+          "icon": "mail",
+          "name": "Contacto",
+          "redirectTo": "/contacto",
+          "type": "general",
+          "activated": true
+        },
+        {
+          "icon": "accessibility",
+          "name": "Site",
+          "redirectTo": "/site/loginSite",
+          "type": "general",
+          "activated": true
+        }
+      ]
+    }
+    console.log(this.componentes);
+    this.dataService.getMenuOpts().subscribe(response => {
 
-    this.initializeApp();
+      this.componentes = response;
+      console.log(this.componentes);
+      this.ls.set("menuItems", this.componentes);
+      this.typeMenu = this.ls.get("typeM");
+      if (screen.width > 780) {
+        this.flagScreen = true;
+      }
+      this.initializeApp();
+      this.updates.available.subscribe((event) => {
+        this.updateAvailable = true;
+      });
+
+    }, error => {
+
+      console.log(error);
+    });
+
 
 
   }
@@ -67,17 +137,32 @@ export class AppComponent {
 
   initializeApp() {
     this.presentLoading();
+    // this.currentUrl = this.functionService.getCurrentUrl();
+    // console.log(this.currentUrl);
+    // console.log(this.ls.get("typeM") );
+    // if (this.ls.get("typeM")) {
+    //   console.log("con localstorage");
+    //   this.typeMenu = this.ls.get("typeM");
+    // } else {
+    //   console.log("sin localstorage");
+    //   if (this.currentUrl.includes("site")) {
+    //     this.typeMenu = 'site';
+    //   } else {
+    //     this.typeMenu = 'general';
+    //   }
+    //   console.log(this.typeMenu);
+    // }
 
-    this.dataService.getMenuOpts().subscribe(response => {
+    this.pushService.configuracionInicial();
 
-      this.componentes = response;
-      this.ls.set("menuItems", this.componentes);
-      this.pushService.configuracionInicial();
-
-    }, error => {
-
-      console.log(error);
-    });
+  }
+  navigateTo(link) {
+    if (link.includes("site")) {
+      this.typeMenu = 'site';
+    } else {
+      this.typeMenu = 'general';
+    }
+    this.functionService.navigateTo(link);
 
   }
 
