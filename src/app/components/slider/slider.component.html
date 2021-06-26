@@ -1,16 +1,23 @@
 <ion-slides pager="ios" class="slide-full por100" [options]="slideOptsOne" style="margin-bottom: 50px;">
-  <ion-slide *ngFor="let slide of slides">
-    <ion-card mode="ios">
-      <img [src]="slide.img" class="slide-image imgSlide1"   />
-      <ion-card-header>
-        <ion-card-subtitle style="min-height: 50px;">{{ slide.titulo }}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content style="min-height: 100px;"> 
-        {{ slide.desc }}
-      </ion-card-content>
-    </ion-card>
-  </ion-slide>
-  <ion-slide>
-    <img src="/assets/img/logo/logo.jpg"  />
-  </ion-slide>
+    <ion-slide *ngFor="let slide of slides">
+        <ion-card mode="ios">
+            <img [src]="slide.img" class="slide-image imgSlide1" />
+            <ion-card-header>
+                <ion-card-subtitle style="min-height: 50px;">{{ slide.titulo }}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content style="min-height: 100px;">
+                {{ slide.desc }}
+                <p *ngIf="slide.link">
+                    <ion-button class="btnSlide" color="secondary" (click)="navigateTo(slide.link)">
+                        {{slide.btnTxt}}
+                        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+                    </ion-button>
+                </p>
+
+            </ion-card-content>
+        </ion-card>
+    </ion-slide>
+    <ion-slide>
+        <img src="/assets/img/logo/logo.jpg" />
+    </ion-slide>
 </ion-slides>

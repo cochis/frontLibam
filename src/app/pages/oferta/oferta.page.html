@@ -1,55 +1,53 @@
- 
+<app-header style="margin: auto; width: 100%;" titulo="Oferta">
 
-<app-header style="margin: auto; width: 100%;" titulo="Oferta"></app-header>
+</app-header>
 <ion-content class="center" (window:resize)="onResize($event)">
 
-  
-  <ion-col size="12" class="center" style="top: 0;">
-    <h4 class="theme" style="text-align:center">
-      Nuestra oferta educativa
-    </h4>
-    <ion-img src="/assets/img/ninos2.png" style="max-width: 800px; margin-left: auto;margin-right: auto;"></ion-img>
 
-  </ion-col>
-  <div class="clearboth"></div>
-  <div class="container70">
-    <ion-col size="12">
-      <ion-col size="12"   size-md="4" class="fLeft">
-        <ion-card style ="  box-shadow : none; margin-top:35px;">
-          <img src="/assets/img/logo/l_500.png" style="    width: 100%;max-width: 230px;" >
-        </ion-card>
-      </ion-col>
-      <ion-col size="12"  size-md="8" class="fLeft">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Nuestra Institución imparte enseñanza integral y de calidad.</ion-card-title>
+    <ion-col size="12" class="center" style="top: 0;">
+        <h4 class="theme" style="text-align:center">
+            Nuestra oferta educativa
+        </h4>
+        <ion-img src="/assets/img/ninos2.png" style="max-width: 800px; margin-left: auto;margin-right: auto;"></ion-img>
 
-          </ion-card-header>
-
-          <ion-card-content style="text-align: justify;">
-            Nuestros fuertes cimientos en valores nos permiten orientar los procesos de socialización y del
-            aprendizaje para que los alumnos se desarrollen en el plano de lo académico y a su vez como
-            individuos, aprendiendo desde hoy resoluciones para que el día de mañana se encuentren preparados
-            para los retos del futuro.
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
     </ion-col>
-  </div>
-  <div class="clearboth"></div>
-  <div class="container70">
-   <app-oferta-cards></app-oferta-cards>
-  </div>
+    <div class="clearboth"></div>
+    <div class="container70">
+        <ion-col size="12">
+            <ion-col size="12" size-md="4" class="fLeft">
+                <ion-card style="  box-shadow : none; margin-top:35px;">
+                    <img src="/assets/img/logo/l_500.png" style="    width: 100%;max-width: 230px;">
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" size-md="8" class="fLeft">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Nuestra Institución imparte enseñanza integral y de calidad.</ion-card-title>
 
-  <div class="clearboth"></div>
+                    </ion-card-header>
 
-  
-  <div class="clearboth"></div>
-  <div class="container70">
-    <app-slider></app-slider>
-  </div>
-  <ion-col style=" clear: both;float:left;"> </ion-col>
-  
-  <app-footer *ngIf="flagScreen"></app-footer> 
+                    <ion-card-content style="text-align: justify;">
+                        Nuestros fuertes cimientos en valores nos permiten orientar los procesos de socialización y del aprendizaje para que los alumnos se desarrollen en el plano de lo académico y a su vez como individuos, aprendiendo desde hoy resoluciones para que el día
+                        de mañana se encuentren preparados para los retos del futuro.
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-col>
+    </div>
+    <div class="clearboth"></div>
+    <div class="container70">
+        <app-oferta-cards></app-oferta-cards>
+    </div>
+
+    <div class="clearboth"></div>
+
+
+    <div class="clearboth"></div>
+    <div class="container70">
+        <app-slider [slider]="slider"></app-slider>
+    </div>
+    <ion-col style=" clear: both;float:left;"> </ion-col>
+
+    <app-footer *ngIf="flagScreen"></app-footer>
 </ion-content>
 <app-footer-mobile *ngIf="!flagScreen"></app-footer-mobile>

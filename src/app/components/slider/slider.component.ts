@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-slider',
@@ -6,43 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
+  @Input() slider: any;
+  public slides: any;
+  constructor(private router: Router) {
+  }
 
-  constructor() { }
-  slides: { img: string, titulo: string, desc: string }[] = [
-    {
-      img: '/assets/img/img5.jpg',
-      titulo: '1er. Lugar en olimpiada del conocimiento',
-      desc: 'Gracias al esfuerzo de nuestros padres y maestros hemos obtenino varios premios'
-    },
-    {
-      img: '/assets/img/ninos2.png',
-      titulo: 'Equipo de olimpiadas del conocimiento ',
-      desc: 'Siempre sabremos donde estás!'
-    },
-    {
-      img: '/assets/img/ninos2.png',
-      titulo: 'Nuestro equipo docente',
-      desc: 'Nuestra plantilla es titulada'
-    },
-    {
-      img: '/assets/img/ninos2.png',
-      titulo: 'Deporte',
-      desc: 'Tenemos en cuenta que para una educación integral es necesaría la actividad fisica'
-    },
-    {
-      img: '/assets/img/ninos2.png',
-      titulo: 'Eventos',
-      desc: 'Donde los alumnos aplican sus conocimientos , fisicos , mentales o artisticos'
-    }
-    
-  ];
   slideOptsOne = {
     initialSlide: 0,
     slidesPerView: 1,
-    autoplay:true,
-    speed: 5000
-   };
+    autoplay: true,
+    speed: 15000
+  };
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.slider);
+    this.slides = this.slider;
+  }
 
+  navigateTo(link) {
+    this.router.navigate([link]);
+  }
 }

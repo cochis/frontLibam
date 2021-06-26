@@ -36,6 +36,14 @@ const routes: Routes = [
     path: 'home-site',
     loadChildren: () => import('./site/pages/home-site/home-site.module').then( m => m.HomeSitePageModule)
   },
+  {
+    path: 'inscripcion',
+    loadChildren: () => import('./pages/inscripcion/inscripcion.module').then( m => m.InscripcionPageModule)
+  },
+  {
+    path: 'reinscripcion',
+    loadChildren: () => import('./pages/reinscripcion/reinscripcion.module').then( m => m.ReinscripcionPageModule)
+  },
 ];
 
 @NgModule({

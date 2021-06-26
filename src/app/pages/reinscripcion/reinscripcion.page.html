@@ -1,0 +1,376 @@
+<app-header style="margin: auto; width: 100%;" titulo="Contacto"></app-header>
+<ion-content (window:resize)="onResize($event)">
+    <ion-col size="12" class="center" style="top: 0;">
+        <h4 class="theme" style="text-align:center">
+            Reinscripcion
+        </h4>
+    </ion-col>
+    <ion-col size="12">
+        <ion-card>
+            <ion-card-content>
+                <ion-list>
+                    <ion-list-header>
+                        <ion-label class="cinta ">
+                            <b>
+                                Si es su deseo que su hijo(a), continúe en nuestra Institución
+                            </b>
+                        </ion-label>
+                    </ion-list-header>
+                    <ion-list-header>
+                        <ion-label class="cinta ">
+                            e invitamos a que realice su pago de reinscripción para el Ciclo Escolar 2021-2022, recalcando que en apoyo a su economía tenemos las cuotas más bajas de esta zona, ofreciéndole Calidad Educativa.
+                        </ion-label>
+                    </ion-list-header>
+                </ion-list>
+
+            </ion-card-content>
+        </ion-card>
+    </ion-col>
+    <!-- Version web -->
+    <div class="container70 " *ngIf="flagScreen ">
+        <!-- Requisitos card -->
+        <ion-card class="  noBorder">
+            <ion-card-header class="filosofia center">
+                Requisitos
+            </ion-card-header>
+            <ion-card-content>
+                <ul class="lstNumber">
+
+                    <li> <b>Formato de Solicitud de inscripción completamente requisitada y firmada para el ciclo
+                            escolar
+                            2021-2022</b>
+                    </li>
+                    <li> <b>Contrato de prestación de servicios educativos 2021-2022 (Asistir al colegio para requisita
+                            y
+                            firmar)</b>
+                    </li>
+                    <li> <b>Reglamento escolar 2021-2022 (asistir al colegio para requisita y firmar) </b></li>
+                    <li> <b>Acta de nacimiento del alumno</b></li>
+                    <li> <b>CURP del alumno en nuevo formato</b></li>
+                    <li> <b>4 fotografías del alumno tamaño infantil</b></li>
+                    <li> <b>Comprobante de domicilio</b></li>
+                    <li> <b>Identificación oficial de la persona que quedará como tutora y responsable de recoger al
+                            alumno a la
+                            hora de salida</b> </li>
+                    <li> <b>CURP de la Persona que quedará como RESPONSABLE ante SEP</b></li>
+                    <li> <b>Identificación oficial de persona(s) SUPLENTE(s) en caso el responsable no pueda asistir</b>
+                    </li>
+                    <li> <b>CURP de persona(s) SUPLENTE(s) en caso el responsable no pueda asistir</b></li>
+                    <li> <b>2 fotografías de cada persona responsable del alumno</b></li>
+                </ul>
+            </ion-card-content>
+        </ion-card>
+        <!-- Cuotas -->
+        <ion-card class="  noBorder">
+            <ion-card-header class=" filosofia center ">
+                Cuotas
+            </ion-card-header>
+            <ion-card-content>
+                <ion-row>
+                    <ion-col col-3 center>
+                        <ion-label></ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="rowPricing"><b>Inscripción</b></ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="rowPricing"><b>Gasto Anual</b></ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="rowPricing"><b>Colegiatura</b></ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-3 center>
+                        <ion-label class="colPricing">1° Primaría</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1500</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1350</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1650</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-3 center>
+                        <ion-label class="colPricing">2°- 6° Primaría </ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1500</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1350</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1650</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-3 center>
+                        <ion-label class="colPricing">Tiempo Completo </ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1500</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1350</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$4000</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="center">
+                    <ion-col col-12 class=" filosofia center" style="text-align:center !important">
+                        <ion-label> Colegiatura preferente </ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center">1° Primaría</ion-label>
+                    </ion-col>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center pricing">$1550</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center">2°- 6° Primaría </ion-label>
+                    </ion-col>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center pricing">$1550</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center"> Tiempo Completo </ion-label>
+                    </ion-col>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center pricing">$3800</ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+        <!-- Tarjetas banners -->
+        <ion-grid>
+            <ion-row>
+                <ion-col class="col-12 col-md-6 col-xl-3">
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-subtitle style="   height:90px; overflow:hidden;"><img src="/assets/img/inscripciones.jpg" style="  width:100%; height:auto " alt="Inscripciones en LIBAM"> </ion-card-subtitle>
+                            <ion-card-title>Tu reinscripción es gratuita </ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content style="height: 150px; overflow-y: scroll;">
+                            “Si trae un invitado y se inscribe, tu pago de reinscripción es gratuita"
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+                <ion-col class="col-12 col-md-6 col-xl-3 ">
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-subtitle style="   height:90px; overflow:hidden;"><img src="/assets/img/primaria.jpg" style="  width:100%; height:auto " alt=" Obtenga colegiatura preferente "></ion-card-subtitle>
+                            <ion-card-title>COLEGIATURA PREFERENTE </ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content style="height: 150px; overflow-y: scroll;">
+                            Pagando junto la Inscripción y los Gastos Anuales se respeta la COLEGIATURA PREFERENTE
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+                <ion-col class="col-12 col-md-6 col-xl-3 ">
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-subtitle style="   height:90px; overflow:hidden;"><img src="/assets/img/primaria.jpg" style="  width:100%; height:auto " alt="Obtenga colegiatura preferente "></ion-card-subtitle>
+                            <ion-card-title>Nota </ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content style="height: 150px; overflow-y: scroll;">
+                            Los alumnos que obtengan beca otorgada por el Gobierno del Estado de México, esta se establecerá con base en la colegiatura normal, que es de $1650.00, ya que el alumno no podrá gozar de dos beneficios.
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <!-- Version Mobile -->
+    <div *ngIf="!flagScreen">
+        <!-- Requisitos card -->
+        <ion-card class="  noBorder">
+            <ion-card-header class="filosofia center">
+
+                Requisitos
+
+            </ion-card-header>
+            <ion-card-content>
+                <ul class="lstNumber">
+
+                    <li> <b>Formato de Solicitud de inscripción completamente requisitada y firmada para el ciclo
+                            escolar
+                            2021-2022</b>
+                    </li>
+                    <li> <b>Contrato de prestación de servicios educativos 2021-2022 (Asistir al colegio para requisita
+                            y
+                            firmar)</b>
+                    </li>
+                    <li> <b>Reglamento escolar 2021-2022 (asistir al colegio para requisita y firmar) </b></li>
+                    <li> <b>Acta de nacimiento del alumno</b></li>
+                    <li> <b>CURP del alumno en nuevo formato</b></li>
+                    <li> <b>4 fotografías del alumno tamaño infantil</b></li>
+                    <li> <b>Comprobante de domicilio</b></li>
+                    <li> <b>Identificación oficial de la persona que quedará como tutora y responsable de recoger al
+                            alumno a la
+                            hora de salida</b> </li>
+                    <li> <b>CURP de la Persona que quedará como RESPONSABLE ante SEP</b></li>
+                    <li> <b>Identificación oficial de persona(s) SUPLENTE(s) en caso el responsable no pueda asistir</b>
+                    </li>
+                    <li> <b>CURP de persona(s) SUPLENTE(s) en caso el responsable no pueda asistir</b></li>
+                    <li> <b>2 fotografías de cada persona responsable del alumno</b></li>
+                </ul>
+            </ion-card-content>
+        </ion-card>
+        <!-- Cuotas -->
+        <ion-card class="  noBorder">
+            <ion-card-header class=" filosofia center ">
+                Cuotas
+            </ion-card-header>
+            <ion-card-content>
+                <ion-row>
+                    <ion-col col-3 center>
+                        <ion-label></ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="rowPricing"><b>Inscripción</b></ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="rowPricing"><b>Gasto Anual</b></ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="rowPricing"><b>Colegiatura</b></ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-3 center>
+                        <ion-label class="colPricing">1° Primaría</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1500</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1350</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1650</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-3 center>
+                        <ion-label class="colPricing">2°- 6° Primaría </ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1500</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1350</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1650</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-3 center>
+                        <ion-label class="colPricing">Tiempo Completo </ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1500</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$1350</ion-label>
+                    </ion-col>
+                    <ion-col col-3 center>
+                        <ion-label class="pricing">$4000</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="center">
+
+                    <ion-col col-12 class=" filosofia center" style="text-align:center !important">
+                        <ion-label> Colegiatura preferente </ion-label>
+                    </ion-col>
+
+
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center">1° Primaría</ion-label>
+                    </ion-col>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center pricing">$1550</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center">2°- 6° Primaría </ion-label>
+                    </ion-col>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center pricing">$1550</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center"> Tiempo Completo </ion-label>
+                    </ion-col>
+                    <ion-col col-6 class="center">
+                        <ion-label class="center pricing">$3800</ion-label>
+                    </ion-col>
+                </ion-row>
+
+            </ion-card-content>
+        </ion-card>
+        <!-- Tarjetas banners -->
+        <ion-grid>
+            <ion-row>
+                <ion-card class="noBorder" style=" width:100%;">
+                    <ion-card-header class="center">
+                        <ion-card-subtitle style=" height:110px; overflow:hidden;"><img src="/assets/img/inscripciones.jpg" alt="Inscripciones en LIBAM"> </ion-card-subtitle>
+                        <ion-card-title>Tu reinscripción es gratuita </ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content style="height: 80px; overflow-y: scroll;" class="center">
+                        “Si trae un invitado y se inscribe, tu pago de reinscripción es gratuita"
+                    </ion-card-content>
+                </ion-card>
+
+
+                <ion-card class="noBorder" style=" width:100%;">
+                    <ion-card-header class="center">
+                        <ion-card-subtitle style="    height:110px; overflow:hidden;"><img src="/assets/img/primaria.jpg" style="  width:60%; height:auto " alt=" Obtenga colegiatura preferente "></ion-card-subtitle>
+                        <ion-card-title>COLEGIATURA PREFERENTE </ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content style="height: 80px; overflow-y: scroll;" class="center">
+                        Pagando junto la Inscripción y los Gastos Anuales se respeta la COLEGIATURA PREFERENTE
+                    </ion-card-content>
+                </ion-card>
+
+                <ion-card class="noBorder" style=" width:100%;">
+                    <ion-card-header class="center">
+                        <ion-card-subtitle style="     height:110px; overflow:hidden;"><img src="/assets/img/primaria.jpg" style="  width:60%; height:auto " alt="Obtenga colegiatura preferente "></ion-card-subtitle>
+                        <ion-card-title>Nota </ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content style="height: 80px; overflow-y: scroll;" class="center">
+                        Los alumnos que obtengan beca otorgada por el Gobierno del Estado de México, esta se establecerá con base en la colegiatura normal, que es de $1650.00, ya que el alumno no podrá gozar de dos beneficios.
+                    </ion-card-content>
+                </ion-card>
+
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div class="container70 " style="margin-bottom:50px; ">
+        <app-slider [slider]="slider"></app-slider>
+    </div>
+    <app-footer *ngIf="flagScreen "></app-footer>
+</ion-content>
+<app-footer-mobile *ngIf="!flagScreen "></app-footer-mobile>

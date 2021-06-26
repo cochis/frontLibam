@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    NgxDatatableModule
     // ServiceWorkerModule.register('ngsw-worker.js', {   }),
 
   ],

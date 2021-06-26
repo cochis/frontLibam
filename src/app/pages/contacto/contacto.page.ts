@@ -33,6 +33,45 @@ export class ContactoPage implements OnInit {
     }
   }
   
+  slider = [
+    {
+      page:"contacto",
+      img: '/assets/img/img5.jpg',
+      titulo: '1er. Lugar en olimpiada del conocimiento',
+      desc: '  Somos el PRIMER LUGAR en APROVECHAMIENTO de la Zona 28, Sector IX y Ciudad Nezahualcóyotl. Ganamos el Concurso de Olimpiadas de Conocimiento Infantil 2019 - 2020 en su última etapa, a nivel NACIONAL. Siendo el alumno Manuel Arturo Ramírez Mercado ganador de una beca por tres años de parte de la Fundación BANCOMER.',
+       
+    },
+    {
+      page:"contacto",
+      img: '/assets/img/ninos2.png',
+      titulo: 'Inscripción',
+      desc: 'Sumate a nuestra fila de campeones',
+      link: '/inscripcion',
+      btnTxt: 'Inscripciones'
+    },
+    {
+      page:"contacto",
+      img: '/assets/img/ninos2.png',
+      titulo: 'Reinscripción',
+      desc: 'Sumate a nuestra fila de campeones',
+      link: '/reinscripcion',
+      btnTxt: 'Reinscripciones'
+    },
+    {
+      page:"contacto",
+      img: '/assets/img/ninos2.png',
+      titulo: 'Deporte',
+      desc: 'Tenemos en cuenta que para una educación integral es necesaría la actividad fisica'
+    },
+    {
+      page:"contacto",
+      img: '/assets/img/ninos2.png',
+      titulo: 'Eventos',
+      desc: 'Donde los alumnos aplican sus conocimientos , fisicos , mentales o artisticos'
+    }
+
+  ];
+  
   ngOnInit(): void {
     
     document.body.scrollTop = 0;
