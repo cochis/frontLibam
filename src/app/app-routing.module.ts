@@ -38,7 +38,7 @@ const routes: Routes = [
   },
   {
     path: 'inscripcion',
-    loadChildren: () => import('./pages/inscripcion/inscripcion.module').then( m => m.InscripcionPageModule)
+    loadChildren: () => import('./pages/inscripcion/inscripcion.module').then( m => m.InscripciónPageModule)
   },
   {
     path: 'reinscripcion',

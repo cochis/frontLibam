@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './inscripcion.page.html',
   styleUrls: ['./inscripcion.page.scss'],
 })
-export class InscripcionPage implements OnInit {
+export class InscripciónPage implements OnInit {
 
   constructor(private functionService: FunctionService,
     private alertCtrl: AlertController,
@@ -29,7 +29,7 @@ export class InscripcionPage implements OnInit {
       titulo: 'Reinscripción',
       desc: 'Sumate a nuestra fila de campeones',
       link: '/inscripcion',
-      btnTxt: 'Inscripciones'
+      btnTxt: 'Inscripciónes'
     },
     {
       page:"reinscripcion",

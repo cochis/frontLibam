@@ -33,7 +33,7 @@ export class ConocenosPage implements OnInit {
       titulo: 'Inscripción',
       desc: 'Sumate a nuestra fila de campeones',
       link: '/inscripcion',
-      btnTxt: 'Inscripciones'
+      btnTxt: 'Inscripciónes'
     },
     {
       page:"conocenos",

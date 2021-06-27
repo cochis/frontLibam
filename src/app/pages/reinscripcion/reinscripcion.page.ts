@@ -58,7 +58,7 @@ export class ReinscripcionPage implements OnInit {
       titulo: 'Reinscripción',
       desc: 'Sumate a nuestra fila de campeones',
       link: '/inscripcion',
-      btnTxt: 'Inscripciones'
+      btnTxt: 'Inscripciónes'
     },
     {
       page:"reinscripcion",

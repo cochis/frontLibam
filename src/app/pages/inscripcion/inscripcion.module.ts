@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InscripcionPageRoutingModule } from './inscripcion-routing.module';
+import { InscripciónPageRoutingModule } from './inscripcion-routing.module';
 
-import { InscripcionPage } from './inscripcion.page';
+import { InscripciónPage } from './inscripcion.page';
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentsModule } from '../../components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    InscripcionPageRoutingModule,
+    InscripciónPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [InscripcionPage]
+  declarations: [InscripciónPage]
 })
-export class InscripcionPageModule {}
+export class InscripciónPageModule {}
