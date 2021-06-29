@@ -2,7 +2,7 @@
     <ion-slide *ngFor="let slide of slides">
         <ion-card mode="ios">
             <img [src]="slide.img" [class]="size" *ngIf="size" />
-            <img [src]="slide.img" class="slide-image imgSlide1" *ngIf="!size" />
+            <img [src]="slide.img" class="slide-image imgSlide1 marginTop25" *ngIf="!size" />
             <ion-card-header>
                 <ion-card-subtitle style="min-height: 50px;" *ngIf="slide.titulo != ''">{{ slide.titulo }}</ion-card-subtitle>
             </ion-card-header>
@@ -19,6 +19,7 @@
         </ion-card>
     </ion-slide>
     <ion-slide>
-        <img src="/assets/img/logo/logo.jpg" />
+        <img src="/assets/img/logo/logo.jpg" class="marginTop50" />
+
     </ion-slide>
 </ion-slides>
