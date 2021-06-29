@@ -55,28 +55,38 @@ export class ReinscripcionPage implements OnInit {
     {
       page:"reinscripcion",
       img: '/assets/img/ninos2.png',
-      titulo: 'Reinscripción',
+      titulo: 'Inscripción',
       desc: 'Sumate a nuestra fila de campeones',
       link: '/inscripcion',
       btnTxt: 'Inscripciónes'
     },
     {
       page:"reinscripcion",
-      img: '/assets/img/ninos2.png',
-      titulo: 'Reinscripción',
-      desc: 'Sumate a nuestra fila de campeones',
-      link: '/reinscripcion',
-      btnTxt: 'Reinscripciones'
-    },
-    {
-      page:"reinscripcion",
-      img: '/assets/img/ninos2.png',
+      img: '/assets/img/tocho.png',
       titulo: 'Deporte',
-      desc: 'Tenemos en cuenta que para una educación integral es necesaría la actividad fisica'
+      desc: 'Tenemos en cuenta que para una educación integral es necesaría la actividad fisica.'
     },
     {
       page:"reinscripcion",
-      img: '/assets/img/ninos2.png',
+      img: '/assets/img/olimpiadas.jpeg',
+      titulo: 'Olimpiadas',
+      desc: 'Cada año realizamos activades al aire libre en conjunto con los padres de familia en un deportivo local.'
+    },
+    {
+      page:"reinscripcion",
+      img: '/assets/img/danza.jpg',
+      titulo: 'Clase de danza',
+      desc: 'La danza escolar es una materia interdisciplinar que se puede desarrollar tanto en el currículo del área de educación artística.'
+    },
+    {
+      page:"reinscripcion",
+      img: '/assets/img/artes.png',
+      titulo: 'Clase de artes',
+      desc: 'Para facilitar el estudio del arte mediante el desarrollo de la competencia artística .'
+    },
+    {
+      page:"reinscripcion",
+      img: '/assets/img/primaria.jpg',
       titulo: 'Eventos',
       desc: 'Donde los alumnos aplican sus conocimientos , fisicos , mentales o artisticos'
     }

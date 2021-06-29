@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SliderComponent implements OnInit {
   @Input() slider: any;
+  @Input() size?: any;
+  @Input() speed?: number;
   public slides: any;
   constructor(private router: Router) {
   }
@@ -21,6 +23,8 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.slider);
+    console.log(this.size);
+    console.log(this.speed);
     this.slides = this.slider;
   }
 

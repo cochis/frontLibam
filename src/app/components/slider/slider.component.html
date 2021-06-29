@@ -1,9 +1,10 @@
-<ion-slides pager="ios" class="slide-full por100" [options]="slideOptsOne" style="margin-bottom: 50px;">
+<ion-slides pager="ios" class="slide-full por100" [options]="slideOptsOne" style="margin-top: 50px;margin-bottom: 50px;">
     <ion-slide *ngFor="let slide of slides">
         <ion-card mode="ios">
-            <img [src]="slide.img" class="slide-image imgSlide1" />
+            <img [src]="slide.img" [class]="size" *ngIf="size" />
+            <img [src]="slide.img" class="slide-image imgSlide1" *ngIf="!size" />
             <ion-card-header>
-                <ion-card-subtitle style="min-height: 50px;">{{ slide.titulo }}</ion-card-subtitle>
+                <ion-card-subtitle style="min-height: 50px;" *ngIf="slide.titulo != ''">{{ slide.titulo }}</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content style="min-height: 100px;">
                 {{ slide.desc }}

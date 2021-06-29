@@ -42,9 +42,7 @@ export class AppComponent {
 
 
   ngOnInit(): void {
-    console.log(this.componentes);
     if (this.componentes === undefined) {
-      console.log("entro");
       this.componentes = [
         {
           "icon": "school",

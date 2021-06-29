@@ -83,6 +83,15 @@
     margin-top: 50px;
 }
 
+.subTitle {
+    color: #bb1100;
+    font-size: 25px;
+    font-weight: 500;
+    padding-right: 15%;
+    padding-left: 15%;
+    margin-top: 50px;
+}
+
 .imgGrado {
     width: 100%;
     max-width: 300px;
@@ -185,4 +194,21 @@
 //borde rojo
 .borderRed {
     border: 3px solid #bb1100;
+}
+
+.ofertaCard {
+    height: 400px;
+}
+
+.ofertaCardScroll {
+    overflow-y: scroll;
+}
+
+//Tamaño maxico 100px
+.px100 {
+    width: 100px !important;
+}
+
+.sizeImgCard {
+    height: 200px !important;
 }
