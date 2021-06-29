@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./oferta.page.scss'],
 })
 export class OfertaPage implements OnInit {
-  
+  onConstruction:boolean = false;
   flagScreen: boolean = false;
   constructor(
     private functionService: FunctionService,

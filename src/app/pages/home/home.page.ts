@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
 
   ls = new SecureLS({ encodingType: 'aes' });
   flagScreen: boolean = false;
-
+  onConstruction:boolean = false;
   constructor(
     private menuCtrl: MenuController,
     private navCtrl: NavController,

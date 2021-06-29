@@ -19,4 +19,4 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent 
   ]
 })
-export class ComponentsModule { }
+export class ComponentsSiteModule { }

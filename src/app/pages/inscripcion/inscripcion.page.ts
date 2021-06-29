@@ -3,17 +3,20 @@ import { FunctionService } from '../../services/functions';
 import { AlertController } from '@ionic/angular';
 import { SeoService } from '../../services/seo.service';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-inscripcion',
   templateUrl: './inscripcion.page.html',
   styleUrls: ['./inscripcion.page.scss'],
 })
 export class InscripciónPage implements OnInit {
+  onConstruction:boolean = true;
   flagScreen: boolean = false;
   constructor(private functionService: FunctionService,
     private alertCtrl: AlertController,
     private seo: SeoService,
-    private title: Title) { 
+    private title: Title,
+    private router: Router) { 
       if (screen.width > 780) {
         this.flagScreen = true;
       }
@@ -88,5 +91,8 @@ export class InscripciónPage implements OnInit {
   }
   onResize(event) {
     this.flagScreen = this.functionService.onResize(event);
+  }
+  navigateTo(link) {
+    this.router.navigate([link]);
   }
 }

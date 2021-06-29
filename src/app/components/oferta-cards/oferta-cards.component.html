@@ -20,23 +20,8 @@
         </ion-card-content>
     </ion-card>
 </ion-col>
-<!-- <ion-col size="12" size-md="6" class="fLeft   ">
-    <ion-card>
 
-        <ion-card-header color="primary">
-            <ion-card-subtitle>Continua en nuestra institución educativa</ion-card-subtitle>
-            <ion-card-title>Reinscripciones</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-            <ion-button class="btnSlide" color="secondary" (click)="navigateTo('/reinscripcion')">
-                Inscripciónes
-
-            </ion-button>
-        </ion-card-content>
-    </ion-card>
-</ion-col> -->
-
+<!-- Asignaturas obligatorias por la SEP -->
 <ion-col size="12" size-md="6" class="fLeft ofertaCard ofertaCardScroll">
     <ion-card>
         <img src="/assets/img/SEP.jpg" class="imgGrado sizeImgCard" alt="Asignaturas curriculares">
@@ -45,12 +30,40 @@
             <ion-card-title>Curriculares</ion-card-title>
         </ion-card-header>
 
-        <ion-card-content>
+        <ion-card-content class="pdCard">
             <app-slider [slider]="slider" [size]="size" [speed]="5000"></app-slider>
         </ion-card-content>
     </ion-card>
 </ion-col>
+<!-- Inglés -->
+<ion-col size="12" size-md="6" class="fLeft ofertaCard">
+    <ion-card>
+        <img src="/assets/img/ingles.jpg" class="imgGrado sizeImgCard" alt="Inglés Asignatura Co-Curricular">
+        <ion-card-header color="primary">
+            <ion-card-subtitle>Clase obligatoria</ion-card-subtitle>
+            <ion-card-title>Inglés</ion-card-title>
+        </ion-card-header>
 
+        <ion-card-content class="pdCard">
+            1 Clase diaria
+        </ion-card-content>
+    </ion-card>
+</ion-col>
+<!-- Computación -->
+<ion-col size="12" size-md="6" class="fLeft ofertaCard">
+    <ion-card>
+        <img src="/assets/img/computacion.jpg" class="imgGrado sizeImgCard" alt="Computación Asignatura Co-Curricular">
+        <ion-card-header color="primary">
+            <ion-card-subtitle>Clase obligatoria</ion-card-subtitle>
+            <ion-card-title>Computación</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="pdCard">
+            2 Clases a la semana
+        </ion-card-content>
+    </ion-card>
+</ion-col>
+<!-- Educación física -->
 <ion-col size="12" size-md="6" class="fLeft ofertaCard  ">
     <ion-card>
         <img src="/assets/img/olimpiadas.jpeg" class="imgGrado sizeImgCard" alt="Natación de manera opcional">
@@ -59,11 +72,12 @@
             <ion-card-title>Educación física</ion-card-title>
         </ion-card-header>
 
-        <ion-card-content>
+        <ion-card-content class="pdCard">
             1 Clase semanal
         </ion-card-content>
     </ion-card>
 </ion-col>
+<!-- Danza -->
 <ion-col size="12" size-md="6" class="fLeft ofertaCard ">
     <ion-card>
         <img src="/assets/img/danza.jpg" class="imgGrado sizeImgCard" alt="Natación de manera opcional">
@@ -72,11 +86,26 @@
             <ion-card-title>Danza</ion-card-title>
         </ion-card-header>
 
-        <ion-card-content>
+        <ion-card-content class="pdCard">
             1 Clase semanal
         </ion-card-content>
     </ion-card>
 </ion-col>
+<!-- Fútbol Americano (Tochito) -->
+<ion-col size="12" size-md="6" class="fLeft ofertaCard  ">
+    <ion-card>
+        <img src="/assets/img/olimpiadas.jpeg" class="imgGrado sizeImgCard" alt="Natación de manera opcional">
+        <ion-card-header color="primary">
+            <ion-card-subtitle>Clase opcional</ion-card-subtitle>
+            <ion-card-title>Fútbol Americano (Tochito)</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="pdCard">
+            Niñas y niños pueden competir en esta actividad
+        </ion-card-content>
+    </ion-card>
+</ion-col>
+<!-- Natación -->
 <ion-col size="12" size-md="6" class="fLeft ofertaCard">
     <ion-card>
         <img src="/assets/img/natacion.jpg" class="imgGrado sizeImgCard" alt="Natación de manera opcional">
@@ -85,12 +114,27 @@
             <ion-card-title>Natación</ion-card-title>
         </ion-card-header>
 
-        <ion-card-content>
+        <ion-card-content class="pdCard">
             2 Clases mensuales
         </ion-card-content>
     </ion-card>
 </ion-col>
+<!-- Robótica -->
+<ion-col size="12" size-md="6" class="fLeft ofertaCard">
+    <ion-card>
+        <img src="/assets/img/robotica.jpeg" class="imgGrado sizeImgCard" alt="Robótica opcional">
+        <ion-card-header color="primary">
+            <ion-card-subtitle>Opcional (Solo si se junta grupo)</ion-card-subtitle>
+            <ion-card-title>Robótica</ion-card-title>
+        </ion-card-header>
 
+        <ion-card-content class="pdCard">
+
+        </ion-card-content>
+    </ion-card>
+</ion-col>
+
+<!-- 5 Festivales al año -->
 <ion-col size="12" size-md="6" class="fLeft ofertaCard ofertaCardScroll">
     <ion-card>
         <img src="/assets/img/festival.png" class="imgGrado sizeImgCard" alt="5 festivales al año">

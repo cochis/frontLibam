@@ -1,0 +1,175 @@
+<app-header style="margin: auto; width: 100%;" titulo="Inscripción"></app-header>
+<ion-content (window:resize)="onResize($event)">
+    <ion-col size="12" class="center" style="top: 0;">
+        <h4 class="theme" style="text-align:center">
+            Inscripción
+        </h4>
+    </ion-col>
+    <ion-col size="12">
+        <ion-card>
+            <ion-card-content>
+                <ion-list>
+                    <ion-list-header>
+                    </ion-list-header>
+                    <ion-list-header>
+                        <ion-label class="cinta ">
+                            En apoyo a su economía tenemos las cuotas más bajas de esta zona, ofreciéndole Calidad Educativa. Te invitamos a que realice su pago de inscripción para el Ciclo Escolar 2021-2022
+                        </ion-label>
+                    </ion-list-header>
+                </ion-list>
+
+            </ion-card-content>
+        </ion-card>
+    </ion-col>
+
+    <!-- Version web -->
+    <div class="container70 " *ngIf="flagScreen ">
+        <!-- Requisitos card -->
+        <ion-card class="  noBorder">
+            <ion-card-header class="subTitle center">
+                Requisitos
+            </ion-card-header>
+            <ion-card-content>
+                <ul class="lstNumber">
+                    <li> <b>Formato de Solicitud de inscripción completamente requisitada y firmada para el ciclo
+                            escolar
+                            2021-2022</b>
+                    </li>
+                    <li> <b>Contrato de prestación de servicios educativos 2021-2022 (Asistir al colegio para requisita
+                            y
+                            firmar)</b>
+                    </li>
+
+                </ul>
+            </ion-card-content>
+        </ion-card>
+        <!-- Cuotas Pricing -->
+        <ion-card class="noBorder">
+            <ion-card-header class=" subTitle center ">
+                Cuotas
+            </ion-card-header>
+            <ion-card-content>
+                <ion-row>
+                    <ion-col col-4 class="center">
+                        <ion-label></ion-label>
+                    </ion-col>
+                    <ion-col col-4 class="center">
+                        <ion-label class="rowPricing"><b>Inscripción</b></ion-label>
+                    </ion-col>
+                    <ion-col col-4 class="center">
+                        <ion-label class="rowPricing"><b>Gasto Anual</b></ion-label>
+                    </ion-col>
+                    <!-- <ion-col col-3 center>
+                        <ion-label class="rowPricing"><b>Colegiatura</b></ion-label>
+                    </ion-col> -->
+                </ion-row>
+
+            </ion-card-content>
+        </ion-card>
+
+        <!-- Notas de inscripcion -->
+        <ion-card style="background:#eee">
+            <ion-card-header class="subTitle center">
+                Notas
+            </ion-card-header>
+            <ion-card-content>
+                <ul class="lstNumber">
+                    <li>
+                        <b>Si trae un invitado y se inscribe, tu pago de reinscripción es gratuita.</b>
+                    </li>
+
+
+                </ul>
+            </ion-card-content>
+        </ion-card>
+
+
+    </div>
+    <!-- Version Mobile -->
+    <div *ngIf="!flagScreen">
+        <!-- Requisitos card -->
+        <ion-card class="  noBorder">
+            <ion-card-header class="subTitle center">
+                Requisitos
+            </ion-card-header>
+            <ion-card-content>
+                <ul class="lstNumber">
+                    <li> <b>Formato de Solicitud de inscripción completamente requisitada y firmada para el ciclo
+                            escolar
+                            2021-2022</b>
+                    </li>
+                    <li> <b>Contrato de prestación de servicios educativos 2021-2022 (Asistir al colegio para requisita
+                            y
+                            firmar)</b>
+                    </li>
+                </ul>
+            </ion-card-content>
+        </ion-card>
+        <!-- Cuotas Pricing -->
+        <ion-card class="noBorder">
+            <ion-card-header class=" subTitle center ">
+                Cuotas
+            </ion-card-header>
+            <ion-card-content>
+                <ion-row>
+                    <ion-col col-4 class="center">
+                        <ion-label></ion-label>
+                    </ion-col>
+                    <ion-col col-4 class="center">
+                        <ion-label class="rowPricing"><b>Inscripción</b></ion-label>
+                    </ion-col>
+                    <ion-col col-4 class="center">
+                        <ion-label class="rowPricing"><b>Gasto Anual</b></ion-label>
+                    </ion-col>
+
+                </ion-row>
+                <ion-row>
+                    <ion-col col-4 class="center">
+                        <ion-label class="colPricing">1° Primaría</ion-label>
+                    </ion-col>
+                    <ion-col col-4 class="center">
+                        <ion-label class="pricing">De <del style="color:#bb1100">$1500</del> a $750 </ion-label>
+                    </ion-col>
+                    <ion-col col-4 class="center">
+                        <ion-label class="pricing">$1350</ion-label>
+                    </ion-col>
+                    <!-- <ion-col col-3 center>
+                        <ion-label class="pricing">$1650</ion-label>
+                    </ion-col> -->
+                </ion-row>
+
+
+            </ion-card-content>
+        </ion-card>
+
+        <!-- Notas de inscripcion -->
+        <ion-card style="background:#eee">
+            <ion-card-header class="subTitle center">
+                Notas
+            </ion-card-header>
+            <ion-card-content>
+                <ul class="lstNumber">
+                    <li>
+                        <b>Si trae un invitado y se inscribe, tu pago de reinscripción es gratuita.</b>
+                    </li>
+                    <li>
+                        <b>Para obtener los beneficios correspondientes al ciclo escolar 2021-2022, es necesario no tener ningún adeudo al momento de la inscripción.</b>
+                    </li>
+                    <li>
+                        <b>Si inscribe durante los meses de FEBRERO, MARZO de 2021, recibirá un descuento en la Inscripción y Gasto Anual y pagará COLEGIATURAS PREFERENTES durante todo el ciclo escolar 2021-2022.</b>
+                    </li>
+                    <li>
+                        <b>Los alumnos que obtengan beca otorgada por el Gobierno del Estado de México, esta se establecerá con base en la colegiatura normal, que es de $1650.00, ya que el alumno no podrá gozar de dos beneficios.</b>
+                    </li>
+
+                </ul>
+            </ion-card-content>
+        </ion-card>
+
+    </div>
+    <div class="container70 " style="margin-bottom:50px; ">
+        <app-slider [slider]="slider"></app-slider>
+    </div>
+    <app-footer *ngIf="flagScreen "></app-footer>
+</ion-content>
+<app-footer-mobile *ngIf="!flagScreen "></app-footer-mobile>
