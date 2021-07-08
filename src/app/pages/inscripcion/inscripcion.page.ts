@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./inscripcion.page.scss'],
 })
 export class InscripciónPage implements OnInit {
-  onConstruction:boolean = true;
+  onConstruction:boolean = false;
   flagScreen: boolean = false;
   constructor(private functionService: FunctionService,
     private alertCtrl: AlertController,

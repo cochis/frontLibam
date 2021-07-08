@@ -1,0 +1,336 @@
+<ion-content *ngIf="onConstruction">
+    <ion-row>
+        <ion-col size="12" class="center">
+            <ion-card class="noBorder">
+                <img src="assets/img/construccion.png" />
+                <ion-card-header>
+                    <h4 class=" filosofia animated infinite pulse">
+                        En estos momentos nos encontramos en construcción
+                    </h4>
+
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-label>
+                        Cualquier duda no dude en contactarnos...
+                    </ion-label>
+                    <ion-button class="btnSlide" color="primary" (click)="navigateTo('/contacto')">
+                        Contacto
+
+                    </ion-button>
+
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-content>
+<ion-content (window:resize)="onResize($event)" *ngIf="!onConstruction">
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="cerrarModal()" color="light">
+            <ion-icon name="close-circle" color="danger"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12">
+                <h4 class="theme" style="text-align:center">
+                    Protocolo Ante el Covid
+                </h4>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="12" size-md="6" style="padding: 3%;">
+                <div class="cardCovid">
+                    <h3 color="primary" class="titleCovid">LINEAMIENTOS DE ACTUACIÓN PARA ORIENTAR A NUESTRA COMUNIDAD</h3>
+                    <p color="secondary" class="pCovid">
+                        <b>PADRES DE FAMILIA, ALUMNOS, COLABORADORES PROVEEDORES Y VISITANTES</b> como dar respuesta ante la eventual aparición de contagios.
+                    </p>
+                    <p class="pCovid">
+                        Así mismo este documento estará en constante actualización.
+
+                    </p>
+                    <p class="pCovid">
+                        Sabemos que con todo su apoyo lograremos tener un regreso a clases presenciales seguro.
+                    </p>
+                    <p class="pCovid">
+                        En el COLEGIO LIBERTADORES DE AMÉRICA seguimos adelante.
+                    </p>
+                </div>
+
+
+            </ion-col>
+            <ion-col size="12" size-md="6" style="padding: 3%;">
+
+                <img src="/assets/img/recurso2.png" class="por100" />
+
+            </ion-col>
+        </ion-row>
+        <!-- Habitos -->
+        <ion-row>
+            <ion-col size="12" size-md="6" class="center" style="padding: 3%;">
+
+
+                <img src="assets/img/covid/habitosEscuela.png " class="center" style="width:400px" />
+
+            </ion-col>
+            <ion-col size="12" size-md="6" class="center" style="padding: 3%;">
+                <img src="assets/img/covid/habitosAlumno.png" class="center" style="width:400px" />
+            </ion-col>
+        </ion-row>
+
+        <!-- Uso adecuado del uso del cubrebocas  -->
+        <ion-row>
+            <ion-col size="12">
+
+                <div class=" ">
+                    <h3 color="primary " class="titleCovid ">RECOMENDACIONES DE LA OMS PARA EL ADECUADO USO DEL CUBREBOCAS.</h3>
+                    <p class="pCovid ">
+                        Lavar el cubrebocas con agua a temperatura ambiente y jabón o detergente: a continuación, hervirla por un minuto, o bien remojarla en solución de cloro al 0.1% por un minuto y enjuagar con agua a temperatura ambiente para eliminar los residuos tóxicos
+                        de cloro.
+
+                    </p>
+
+                </div>
+
+            </ion-col>
+            <ion-col size="12">
+
+                <div class="center">
+                    <img src="assets/img/covid/cubrebocas.jpg" class="center" style="width:400px" />
+                </div>
+
+            </ion-col>
+        </ion-row>
+        <!-- Uso adecuado del uso del cubrebocas  -->
+        <ion-row>
+            <ion-col size="12" class="center" style="padding: 3%;">
+                <div class="">
+                    <h3 color="primary" class="titleCovid">TE CUIDAS TÚ, NOS CUIDAMOS TODOS. ALUMNOS Y PADRES DE FAMILIA.</h3>
+                    <p color="secondary" class="pCovid">
+                        Es de suma importancia que todos los miembros de la comunidad conozcan y se apeguen a las siguientes disposiciones y medidas sanitarias preventivas, <b> con el objetivo de reducir la probabilidad de contagios y exposición dentro del plantel una vez que inicie
+                        la reincorporación a clases presenciales.</b>
+                    </p>
+                    <p class="pCovid">
+                        <b>Todos</b> los miembros de la comunidad deben estar pendientes de la información sobre las medidas de contagios de COVID 19, que se emiten a través de medios electrónicos institucionales, redes sociales y sitio web del colegio.
+
+                    </p>
+                    <p class="pCovid">
+                        <b>Todos</b> los miembros de la comunidad deben conocer y aplicar los 10 hábitos para el cuidado de la salud (escuela y estudiantes).
+                    </p>
+                    <p class="pCovid">
+                        <b>Todos</b> los miembros de la comunidad tienen la responsabilidad de realizar <b> 3 filtros de salud preventiva, </b> en casa, durante su ingreso al plantel y el salón de clases u oficina.
+                    </p>
+                    <p class="pCovid">
+                        En caso de presentar algún síntoma como: <b> fiebre, tos, dolor de garganta y escurrimiento o congestión nasal, malestar general, dolor de cabeza o dificultad para respirar, o haber estado en contacto con un caso sospechoso o confirmado de COVID 19, debe
+                        reportarlo al colegio.</b>
+                    </p>
+                    <p class="pCovid">
+                        Al correo <a href="mailto:contacto@colegiolibam.com">contacto@colegiolibam.com</a> del o al <a href="tel:5557434444">55-5743-4444</a> tel. y dejar algún número de contacto.
+                    </p>
+                </div>
+
+
+            </ion-col>
+            <ion-col size="12" class="center" style="padding: 3%;">
+
+                <div>
+
+                    <h3 color="primary" class="titleCovid"> ES IMPORTANTE QUE CUALQUIER PERSONA QUE PRESENTE SINTOMATOLOGÍA POR POSIBLE CONTAGIO EVITE ACUDIR AL COLEGIO</h3>
+                    <p class="pCovid">
+                        Durante el traslado de casa, el Colegio recomienda limpiar y desinfectar superficies de su vehículo particular constantemente.
+                    </p>
+                    <p class="pCovid">
+                        En caso de utilizar transporte público, usar el equipo de protección personal (cubrebocas, careta o googlees) y procurar la sana distancia, así como utilizar gel antibacterial al descender del transporte.
+                    </p>
+                    <p class="pCovid">
+                        Todos deben someterse a los filtros sanitarios de entrada y salida señalados por el colegio.
+                    </p>
+                    <p class="pCovid">
+                        El servicio médico del colegio realizará expedientes médicos de los colaboradores, con el objetivo de identificar algún padecimiento, es indispensable que los colaboradores hayan cumplido con el proceso de entrevista médica, para ingresar a las instalaciones.
+                    </p>
+                    <p class="pCovid">
+                        Todas las visitas al colegio se realizarán únicamente bajo previa cita.
+                    </p>
+                    <p class="pCovid">
+                        Desde el ingreso, durante y hasta el término de su jornada laboral, el colaborador debe portar el equipo de protección personal (EPP) cubrebocas y /o protector facial, de lo contrario no podrá ingresar al colegio.
+                    </p>
+                    <p class="pCovid">
+                        Se sugiere dar prioridad a las reuniones virtuales.
+                    </p>
+                    <p class="pCovid">
+                        En caso de que el personal del colegio viaje dentro o fuera del país, deberá notificarlo.
+
+                    </p>
+                    <p class="pCovid">
+                        A su regreso deberá realizarse una prueba PCR de laboratorio para demostrar que es un caso negativo, de lo contrario tendrá que permanecer 15 días en aislamiento, el colegio lo considerará como un permiso sin goce de sueldo.
+                    </p>
+                    <p class="pCovid">
+                        Todos los lineamientos aquí mencionados son de carácter obligatorio para los colaboradores, por lo tanto, cualquier incumplimiento será motivo de la sanción que se determine.
+                    </p>
+
+
+                </div>
+
+            </ion-col>
+        </ion-row>
+
+
+        <!-- filtros en el plantel -->
+        <ion-row>
+            <ion-col size="12" class="center" style="padding: 3%;">
+                <div>
+                    <h3 color="primary" class="titleCovid">FILTROS EN EL PLANTEL.</h3>
+                    <p color="secondary" class="pCovid">
+                        Se realizarán filtros sanitarios para el ingreso seguro al colegio.
+                    </p>
+                    <p class="pCovid">
+                        Para lo anterior, los responsables de esta actividad portarán EPP en todo momento.
+
+                    </p>
+                    <p class="pCovid">
+                        Los filtros se encontrarán en la entrada del colegio y en la dirección del colegio.
+                    </p>
+                    <p class="pCovid">
+                        Se realizará un <b> breve interrogatorio a todos los miembros de la comunidad,</b> con el fin de tener una evaluación general de su estado de salud.
+                    </p>
+                    <p class="pCovid">
+                        Posteriormente debe acercarse a los termómetros
+                    </p>
+                    <p class="pCovid">
+                        Es importante que todos usen cubrebocas para ingresar al colegio.
+                    </p>
+                    <p class="pCovid">
+                        Todo el alumnado debe presentar una <b>CARTA COMPROMISO DE CORRESPONSABILIDAD</b> todos los días <b>(La cual se le proporcionara en el colegio).</b>
+                    </p>
+                    <p class="pCovid">
+                        Sí el alumno no presenta la <b>CARTA DE CORRESPONSABILIDAD.</b>
+                    </p>
+                    <p class="pCovid center" style="color:#bb1100; font-size: 20px; font-weight: bold;">
+                        No podrá ingresar al colegio.
+                    </p>
+                </div>
+
+
+            </ion-col>
+            <ion-col size="12" class="center" style="padding: 3%;">
+
+                <img src="assets/img/covid/filtros.png" style="width:400px" />
+
+            </ion-col>
+        </ion-row>
+
+
+
+        <!-- PROTOCOLO PARA EL MANEJO DE CASOS SOSPECHOSOS O CONFIRMADOS DE COVID 19. -->
+        <ion-row>
+            <ion-col size="12" class="center" style="padding: 3%;">
+                <div>
+                    <h3 color="primary" class="titleCovid">PROTOCOLO PARA EL MANEJO DE CASOS SOSPECHOSOS O CONFIRMADOS DE COVID 19.</h3>
+                    <p color="secondary" class="pCovid">
+                        Si durante el primer filtro de ingreso al colegio se detecta un caso sospechoso <b style="color:#bb1100; font-size: 20px; font-weight: bold;">NO PODRÁ INGRESAR AL COLEGIO</b> , hasta que el alumno no traiga una constancia médica
+                        que es negativo o por el contrario se le darán 15 días, durante ese periodo se le dará seguimiento (cada maestro se pondrá de acuerdo con su alumno del modo como trabajar.)
+                    </p>
+                    <p class="pCovid">
+                        Ante la presencia de 2 o más casos se suspenderán las clases presenciales de ese grupo.
+
+                    </p>
+                    <p class="pCovid">
+                        En caso de tener 2 o más aulas cerradas, se cerrará el colegio (5 DÍAS) para que se realice un estudio de contactos, si se identificaran más casos se coordinará con las autoridades sanitarias la posibilidad de extender el cierre a 14 días o más.
+                    </p>
+                </div>
+            </ion-col>
+            <ion-col size="12" class="center" style="padding: 3%;">
+                <div>
+                    <h3 color="primary" class="titleCovid">FILTRO EN EL SALÓN DE CLASES.</h3>
+                    <p color="secondary" class="pCovid">
+                        Los alumnos se le dará gel previo a la incorporación a su aula.
+                    </p>
+                    <p class="pCovid">
+                        Durante la jornada escolar alumnos, docentes y colaboradores deben portar el cubrebocas de manera adecuada y no compartirlo.
+                    </p>
+                    <p class="pCovid">
+                        Los alumnos no podrán de cambiar de asiento, ni compartir objetos de uso personal.
+                    </p>
+                    <p class="pCovid">
+                        En el caso del salón de cómputo será sanitizado al termino de cada clase.
+                    </p>
+                    <p class="pCovid">
+                        Los recesos se realizarán de manera escalonada.
+                    </p>
+                    <h3 color="primary" class="titleCovid">REGLAMENTO PARA ÁREAS DEPORTIVAS.</h3>
+
+                    <p class="pCovid">
+                        Las actividades deportivas quedan suspendidas hasta que las autoridades determinen lo contrario.
+                    </p>
+
+                    <h3 color="primary" class="titleCovid">CAFETERÍA.</h3>
+                    <p class="pCovid">
+                        Los alimentos serán de fácil preparación y deben estar empaquetados para su entrega inmediata.
+                    </p>
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <!-- transporte -->
+        <ion-row>
+            <ion-col size="12" class="center" style="padding: 3%;">
+                <div>
+                    <h3 color="primary" class="titleCovid">TRANSPORTE ESCOLAR.</h3>
+                    <p color="secondary" class="pCovid">
+                        El punto de entrega de los alumnos será por la Av. López Mateos.
+                    </p>
+                    <p class="pCovid">
+                        El transporte deberá llegar con tiempo para realizar el protocolo de sanidad.
+
+                    </p>
+                    <p class="pCovid">
+                        Deben cumplir con los filtros de sanidad (primer filtro en casa y el segundo en el colegio).
+                    </p>
+
+                    <p class="pCovid">
+                        Antes de abordar la unidad de transporte los padres deberán <b>entregar </b> de manera <b>DIARIA Y OBLIGATORIA</b> la carta de <b>COMPROMISO DE CORRESPONSABILIDAD</b> con la firma del padre o tutor del día correspondiente, dónde
+                        especifica que el alumno no tiene síntomas que se relacionen con el COVID 19, así como el uso obligatorio de EPP.
+                    </p>
+                    <h3 color="primary" class="titleCovid">TRANSPORTE ESCOLAR.</h3>
+                    <ul>
+                        <li>El conductor debe tomar la temperatura.</li>
+                        <li>Sí el alumno tiene 37.5 °C el alumno no podrá ingresar a la unidad.</li>
+                        <li> La unidad debe ser desinfectada para el servicio.</li>
+
+                        <li> La unidad debe contar con gel.</li>
+                        <li>El uso de cubrebocas y careta es requerido de forma obligatoria en todo el trayecto del viaje para conductor y alumnos.</li>
+                        <li>El protocolo de limpieza y desinfección dentro del colegio se realizará antes, durante</li>
+                    </ul>
+
+                    <p>
+                        <b style="color:#bb1100" class="center">
+                                A PESAR DE QUE LA CONTINGENCIA SANITARIA REPRESENTA UN GRAN RETO Y EL INICIO DE UNA NUEVA REALIDAD.
+                            </b>
+                    </p>
+
+                </div>
+            </ion-col>
+            <ion-col size="12" class="center" style="padding: 3%;">
+                <div class="cardCovid">
+                    <h3 color="primary" class="titleCovid">En el <b style="color:#019342;"> COLEGIO LIBERTADORES DE AMÉRICA</b> nos preparamos para reencontrarnos con toda la comunidad con la intención de brindarles un regreso a clases seguro..</h3>
+                    <p color="secondary" class="pCovid">
+                        <b style="color:#bb1100" class="center"> ES RESPONSABILIDAD DE TODOS CUIDARNOS HOY, PARA PODER VERNOS PRONTO EN EL SALÓN DE CLASES.</b>
+
+                    </p>
+
+                    <p class="center por100">
+                        <img src="assets/img/covid/feliz.png" />
+                    </p>
+
+                </div>
+            </ion-col>
+        </ion-row>
+
+
+
+    </ion-grid>
+
+
+
+</ion-content>

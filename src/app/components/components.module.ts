@@ -8,6 +8,7 @@ import { FooterMobileComponent } from './footer-mobile/footer-mobile.component';
 import { SliderComponent } from './slider/slider.component';
 import { OfertaCardsComponent } from './oferta-cards/oferta-cards.component';
 import { HeaderMobileComponent } from './header-mobile/header-mobile.component';
+import { BlogSingleComponent } from './blog-single/blog-single.component';
 
 @NgModule({
   declarations: [HeaderComponent,
@@ -15,7 +16,8 @@ import { HeaderMobileComponent } from './header-mobile/header-mobile.component';
                 FooterMobileComponent,
                 SliderComponent,
                 OfertaCardsComponent,
-                HeaderMobileComponent
+                HeaderMobileComponent,
+                BlogSingleComponent
               ],
   imports: [
     CommonModule,
@@ -27,7 +29,9 @@ import { HeaderMobileComponent } from './header-mobile/header-mobile.component';
     FooterMobileComponent,
     SliderComponent,
     OfertaCardsComponent,
-    HeaderMobileComponent
+    HeaderMobileComponent,
+    BlogSingleComponent
+
   ]
 })
 export class ComponentsModule { }

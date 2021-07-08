@@ -7,7 +7,8 @@ import { DataService } from '../../services/data.service';
 import { FunctionService } from '../../services/functions';
 import { SeoService } from '../../services/seo.service';
 import { Title } from '@angular/platform-browser';
-
+import { ModalController } from '@ionic/angular';
+import { BlogSingleComponent } from 'src/app/components/blog-single/blog-single.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -24,6 +25,7 @@ export class HomePage implements OnInit {
     private functionService: FunctionService,
     private seo: SeoService,
     private title: Title,
+     private modalCtrl: ModalController
   ) {
     if (screen.width > 780) {
       this.flagScreen = true;
@@ -120,4 +122,29 @@ export class HomePage implements OnInit {
     this.flagScreen = this.functionService.onResize(event);
   }
 
+  
+  
+  async openModal() {
+
+    const modal = await this.modalCtrl.create({
+      component: BlogSingleComponent,
+      swipeToClose: true,
+      componentProps: {
+        nombre: 'Fernando',
+        pais: 'Costa Rica'
+      }
+    });
+    
+    await modal.present();
+
+    // const { data } = await modal.onDidDismiss();
+    const { data } = await modal.onWillDismiss();
+    console.log('onWillDismiss');
+
+    console.log(data);
+
+  }
+
 }
+
+ 
