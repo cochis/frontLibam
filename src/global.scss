@@ -28,9 +28,9 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-@import '~@swimlane/ngx-datatable/index.css';
-@import '~@swimlane/ngx-datatable/themes/material.scss';
-@import '~@swimlane/ngx-datatable/assets/icons.css';
+@import "~@swimlane/ngx-datatable/index.css";
+@import "~@swimlane/ngx-datatable/themes/material.scss";
+@import "~@swimlane/ngx-datatable/assets/icons.css";
 .initTitle {
     font-size: 40px;
     color: #019342;
@@ -99,11 +99,44 @@
     border: none;
 }
 
+.note1 {
+    border: 3px, solid, #bb1100;
+    background-color: #019342;
+    /* Green */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.note2 {
+    border: 3px, solid, #019342;
+    background-color: #bb1100;
+    /* Green */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 .container70 {
     width: 100%;
     max-width: 1300px;
     padding-right: 15%;
     padding-left: 15%;
+    margin-top: 50px;
+    margin: auto;
+}
+
+.container90 {
+    width: 100%;
+    max-width: 1500px;
+    padding-right: 5%;
+    padding-left: 5%;
     margin-top: 50px;
     margin: auto;
 }
@@ -183,6 +216,28 @@
 .pricing {
     font-weight: 600;
     color: #019342;
+}
+
+.tablePricing {
+    background-color: #b99c2c;
+    /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.tablePricingDesc {
+    background-color: #019342;
+    /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 
 //sin border
