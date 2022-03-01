@@ -5,7 +5,7 @@ import { DataService } from '../../../services/data.service';
 import { Router } from '@angular/router';
 import { FunctionService } from '../../../services/functions';
 import { NgForm } from '@angular/forms';
-import { UserLogin } from '../../interfaces/interfaces';
+import { User } from '../../interfaces/interfaces';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
   ls = new SecureLS({ encodingType: 'aes' });
   menuItems: any;
 
-  public usuario: UserLogin = {
+  public usuario: any = {
     email: '',
     password: '',
     date: ''

@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { RegisterPageRoutingModule } from './register-routing.module';
-
 import { RegisterPage } from './register.page';
 import { ComponentsSiteModule } from '../../components/components.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -15,7 +13,8 @@ import { ComponentsSiteModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     RegisterPageRoutingModule,
-    ComponentsSiteModule
+    ComponentsSiteModule,
+    ReactiveFormsModule
   ],
   declarations: [RegisterPage]
 })

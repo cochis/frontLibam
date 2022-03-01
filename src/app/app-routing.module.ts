@@ -39,18 +39,18 @@ const routes: Routes = [
   //   path: 'blog',
   //   loadChildren: () => import('./pages/blog/blog.module').then( m => m.BlogPageModule)
   // },
-  // {
-  //   path: 'site/register',
-  //   loadChildren: () => import('./site/pages/register/register.module').then( m => m.RegisterPageModule)
-  // },
-  // {
-  //   path: 'site/loginSite',
-  //   loadChildren: () => import('./site/pages/login/login.module').then( m => m.LoginPageModule)
-  // },
-  // {
-  //   path: 'site/home-site',
-  //   loadChildren: () => import('./site/pages/home-site/home-site.module').then( m => m.HomeSitePageModule)
-  // },
+  {
+    path: 'site/register',
+    loadChildren: () => import('./site/pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'site/loginSite',
+    loadChildren: () => import('./site/pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'site/home-site',
+    loadChildren: () => import('./site/pages/home-site/home-site.module').then( m => m.HomeSitePageModule)
+  },
 ];
 
 @NgModule({

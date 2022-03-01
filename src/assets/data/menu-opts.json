@@ -35,11 +35,11 @@
     },
 
     {
-        "icon": "people-circle-outline",
-        "name": "Blog",
-        "redirectTo": "/blog",
+        "icon": "accessibility",
+        "name": "Registro",
+        "redirectTo": "/site/register",
         "type": "general",
-        "activated": false
+        "activated": true
     },
     {
         "icon": "accessibility",
