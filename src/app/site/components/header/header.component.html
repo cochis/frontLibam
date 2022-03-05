@@ -1,3 +1,35 @@
-<p>
-  header works!
-</p>
+<ion-header (window:resize)="onResize($event)">
+
+  <ion-toolbar *ngIf="!flagScreen" color="primary" style="margin-bottom: -20px;">
+    <ion-title class="ion-text-capitalize" *ngIf="titulo">{{ titulo }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover( $event )" color="light">
+        <ion-icon slot="icon-only" name="person-outline"></ion-icon>Menu
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <!-- style="background-color: #019342;     margin-bottom: -20px;" -->
+
+  <div id="menu" class="container" *ngIf="flagScreen" style="height: 60px; border-bottom: 4px solid #bb1100">
+
+    <div style="line-height: 50px;margin: auto;" class="center">
+      <!-- <a routerLink="'/home'" routerLinkActive="active" (click)="navigateTo('/home')"><img
+        src="/assets/img/logo/l_100.png" style="max-width: 80px;margin-top: 15px;" /> </a> -->
+
+
+      <!-- <li *ngFor="let c of componentes">
+      <a *ngIf="c.activated" (click)="navigateTo(c.redirectTo)"> {{ c.name }} </a>
+    </li> -->
+      <ul class="center" style="margin-top: 80px; text-align: center;">
+        <li>
+          <a routerLink="'/home'" routerLinkActive="active" (click)="navigateTo('/home')"><img
+              src="/assets/img/logo/l_100.png" style="max-width: 80px; margin-top: -50px; " /> </a>
+        </li>
+
+      </ul>
+
+
+    </div>
+  </div>
+
+</ion-header>

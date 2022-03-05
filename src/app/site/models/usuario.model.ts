@@ -7,5 +7,6 @@ export class UsuarioModel{
     role: string;
     grade?: string;
     createDate: Date;
+    uid: string;
 
 }

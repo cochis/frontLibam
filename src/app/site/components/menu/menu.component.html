@@ -1,0 +1,19 @@
+<ion-list>
+  <ion-item  [routerLink]="['/site/informacion-estudiante']" [queryParams]="{type: 'Register'}"  detail>
+    <ion-icon name="exit" slot="start" color="primary"></ion-icon>
+    Registro de usuario
+  </ion-item>
+  <ion-item (click)="SignOut()" detail>
+    <ion-icon name="exit" slot="start" color="primary"></ion-icon>
+    Registro de Clases
+  </ion-item>
+  <ion-item (click)="SignOut()" detail>
+    <ion-icon name="exit" slot="start" color="primary"></ion-icon>
+    perfil
+  </ion-item>
+  <ion-item (click)="SignOut()" detail>
+    <ion-icon name="exit" slot="start" color="primary"></ion-icon>
+    Salir
+  </ion-item>
+
+</ion-list>

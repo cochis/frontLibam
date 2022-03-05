@@ -6,7 +6,6 @@ import { RegisterPage } from './register.page';
 import { ComponentsSiteModule } from '../../components/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   imports: [
     CommonModule,

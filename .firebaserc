@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "libam-8e1c0"
+  },
+  "targets": {
+    "libam-8e1c0": {
+      "hosting": {
+        "app": [
+          "libam-8e1c0"
+        ]
+      }
+    }
   }
 }

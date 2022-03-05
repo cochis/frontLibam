@@ -1,6 +1,5 @@
 <!-- <app-header style=" text-align: center; width: 100%;" titulo="Login"></app-header> -->
-
-
+<app-headerSite style=" text-align: center; width: 100%;" titulo="Intraner escolar" ></app-headerSite>
 <ion-content class="center" (window:resize)="onResize($event)">
 
     <ion-col size="12" class="center" style="top: 0;">
@@ -35,7 +34,8 @@
                         <ion-col>
                             <ion-button color="secondary" type="submit" expand="block">Registro</ion-button>
                             <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
-                            <ion-button color="google" type="submit" expand="block">Registro con Google</ion-button>
+                            <!-- <ion-button color="google"  (click)="authService.GoogleAuth()" expand="block">Registro con Google</ion-button> -->
+                            <!-- <ion-button color="primary" expand="block" routerLink="/site/login">¿Ya estas registrado?</ion-button> -->
                         </ion-col>
                     </ion-row>
                 </form>

@@ -16,7 +16,7 @@ export class RegisterPage implements OnInit {
   formRegistration: FormGroup;
 
   constructor(public fb: FormBuilder,
-    private fb_service: FirebaseService) {
+    public authService: FirebaseService) {
     this.crearFormulario();
     this.cargarDataAlFormulario();
     // this.crearListeners();
@@ -24,14 +24,6 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     this.usuario = new UsuarioModel();
-    // this.usuario.email = 'ing.oarrs@gmail.com';
-    // this.usuario.password ='123456';
-    // this.usuario.name='Oscar Alejandro';
-    // this.usuario.lastName='Ramirez';
-    // this.usuario.surName ='Rosas';
-    // this.usuario.role= 'Admin';
-    // this.usuario.grade='1';
-    // this.usuario.createDate = new Date();
   }
 
 
@@ -65,10 +57,12 @@ export class RegisterPage implements OnInit {
 
     console.log('this.formRegistration.value  ==>', this.formRegistration.value);
     console.log('this.formRegistration.invalid', this.formRegistration.invalid)
+    let email = this.formRegistration.value.email;
+    let password = this.formRegistration.value.password;
     if (!this.formRegistration.invalid) {
 
       console.log('this.formRegistration.value  ==>', this.formRegistration.value);
-
+      this.authService.SignUp(email, password);
     }
 
     // Posteo de información

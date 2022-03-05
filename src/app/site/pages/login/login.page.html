@@ -1,45 +1,46 @@
-<app-header style=" text-align: center; width: 100%;" titulo="Login"></app-header>
+<app-headerSite style=" text-align: center; width: 100%;" titulo="Intraner escolar" ></app-headerSite>
 
 
 <ion-content class="center" (window:resize)="onResize($event)">
 
-    <ion-col size="12" class="center" style="top: 0;">
-        <h4 class="theme" style="text-align:center">
-            Inicia sesión
-        </h4>
+    
+    <ion-col class="center">
+        <ion-card>
+            <ion-card-header>
+                <h4 class="theme" style="text-align:center">
+                    Ingreso
+                </h4>
+
+            </ion-card-header>
+            <ion-card-content>
+
+                <form size="12" size-md="6" sizeLg="4" autocomplete="off" [formGroup]="formLogin"
+                    (ngSubmit)="onSubmit()"
+                    style="max-width:350px; margin:auto; border-radius:20px; padding:25px;  box-shadow: 5px 10px #888888;">
+                    <ion-item lines="full">
+                        <ion-label position="floating">Email</ion-label>
+                        <ion-input class="form-control" type="email" placeholder="Correo electrónico"
+                            formControlName="email" [class.is-invalid]="correoNoValido"></ion-input>
+                    </ion-item>
+                    <ion-item lines="full">
+                        <ion-label position="floating">Password</ion-label>
+                        <ion-input class="form-control" type="password" placeholder="Contraseña"
+                            formControlName="password" [class.is-invalid]="passwordNoValido"></ion-input>
+                    </ion-item>
+                    <ion-row>
+                        <ion-col>
+                            <ion-button color="secondary" type="submit" expand="block">Login</ion-button>
+                            <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+                            <!-- <ion-button color="google"  (click)="authService.GoogleAuth()" expand="block">Registro con Google</ion-button> -->
+                            <!-- <ion-button color="primary" expand="block" routerLink="/site/register">Aún no tienes cuenta</ion-button> -->
+                        </ion-col>
+                    </ion-row>
+                </form>
+            </ion-card-content>
+        </ion-card>
 
 
     </ion-col>
-    <div class="container50">
-        <ion-col class="center">
 
-
-            <form size="12" size-md="6" sizeLg="4" #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
-
-
-
-
-                <ion-item>
-                    <ion-label>Email:</ion-label>
-                    <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="usuario.email"
-                        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-label>Password:</ion-label>
-                    <ion-input type="password" name="password" [(ngModel)]="usuario.password" required
-                        placeholder="Contraseña">
-                    </ion-input>
-                </ion-item>
-
-
-                <ion-button color="secondary" [disabled]="formulario.invalid" type="submit" expand="block">
-                    Login
-                </ion-button>
-
-            </form>
-        </ion-col>
-    </div>
-    <app-footer *ngIf="flagScreen"></app-footer>
-    <app-footer-mobile *ngIf="!flagScreen"></app-footer-mobile>
+    <app-footerSite *ngIf="flagScreen" ></app-footerSite>
 </ion-content>

@@ -10,11 +10,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
     path: 'conocenos',
     loadChildren: () => import('./pages/conocenos/conocenos.module').then( m => m.ConocenosPageModule)
   },
@@ -44,13 +39,40 @@ const routes: Routes = [
     loadChildren: () => import('./site/pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'site/loginSite',
+    path: 'site/login',
     loadChildren: () => import('./site/pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'site/home-site',
     loadChildren: () => import('./site/pages/home-site/home-site.module').then( m => m.HomeSitePageModule)
   },
+  {
+    path: 'site/verify-email',
+    loadChildren: () => import('./site/pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
+  },
+  {
+    path: 'site/informacion-estudiante',
+    loadChildren: () => import('./site/pages/recopilacion/informacion-estudiante/informacion-estudiante.module').then( m => m.InformacionEstudiantePageModule)
+  },
+  {
+    path: 'site/informacion-tutor',
+    loadChildren: () => import('./site/pages/recopilacion/informacion-tutor/informacion-tutor.module').then( m => m.InformacionTutorPageModule)
+  },
+  {
+    path: 'site/informacion-curso',
+    loadChildren: () => import('./site/pages/recopilacion/informacion-curso/informacion-curso.module').then( m => m.InformacionCursoPageModule)
+  },   {
+    path: 'site/views/students',
+    loadChildren: () => import('./site/pages/views/students/students.module').then( m => m.StudentsPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  }
+
+
+
 ];
 
 @NgModule({

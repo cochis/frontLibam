@@ -36,8 +36,8 @@
 
     {
         "icon": "accessibility",
-        "name": "Registro",
-        "redirectTo": "/site/register",
+        "name": "Intranet",
+        "redirectTo": "/site/login",
         "type": "general",
         "activated": true
     },

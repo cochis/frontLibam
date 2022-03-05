@@ -4,8 +4,9 @@ import * as SecureLS from 'secure-ls';
 import { DataService } from '../../../services/data.service';
 import { Router } from '@angular/router';
 import { FunctionService } from '../../../services/functions';
-import { NgForm } from '@angular/forms';
-import { User } from '../../interfaces/interfaces';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FirebaseService } from '../../services/firebase.service';
+import { UsuarioModel } from '../../models/usuario.model';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,44 +14,27 @@ import { User } from '../../interfaces/interfaces';
 })
 export class LoginPage implements OnInit {
   flagScreen: boolean = false;
-  componentes: Componente[];
   ls = new SecureLS({ encodingType: 'aes' });
-  menuItems: any;
+  usuario: UsuarioModel;
+  formLogin: FormGroup;
 
-  public usuario: any = {
-    email: '',
-    password: '',
-    date: ''
-  };
-
+   
   constructor(
-    private dataService: DataService,
-    private router: Router,
+    public fb: FormBuilder,
+    public authService: FirebaseService,
     private functionService: FunctionService) {
     if (screen.width > 780) {
       this.flagScreen = true;
     }
-
+    this.crearFormulario();
+    this.cargarDataAlFormulario();
   }
 
   ngOnInit() {
-    this.usuario.email = "";
-    this.usuario.password = "";
-    this.usuario.date = '';
-
-    if (screen.width > 780) {
-      this.flagScreen = true;
-    }
+    this.usuario = new UsuarioModel();
   }
 
-  onSubmit(formulario: NgForm) {
-    // console.log('submit');
-    
-    this.usuario.date = this.functionService.convertBeautifulDate(new Date());
-    console.log(this.usuario);
-    // console.log(formulario.value);
-
-  }
+  
   onResize(event) {
     var widthScreen = event.target.innerWidth;
     if (widthScreen > 780) {
@@ -58,6 +42,50 @@ export class LoginPage implements OnInit {
     } else {
       this.flagScreen = false;
     }
+  }
+  crearFormulario() {
+
+    this.formLogin = this.fb.group({
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      password: ['', Validators.required],
+    }
+    );
+
+  }
+  cargarDataAlFormulario() {
+
+    // this.forma.setValue({
+    this.formLogin.reset({
+      correo: 'fernando@gmail.com',
+      password: '123',
+    });
+
+  }
+  onSubmit() {
+
+    console.log('this.formLogin.value  ==>', this.formLogin.value);
+    console.log('this.formLogin.invalid', this.formLogin.invalid)
+    let email = this.formLogin.value.email;
+    let password = this.formLogin.value.password;
+    if (!this.formLogin.invalid) {
+
+      console.log('this.formLogin.value  ==>', this.formLogin.value);
+      this.authService.SignIn(email, password);
+    }
+
+    // Posteo de información
+    this.formLogin.reset({
+      correo: '',
+      password: '',
+    });
+
+  }
+
+  get correoNoValido() {
+    return this.formLogin.get('email').invalid && this.formLogin.get('email').touched
+  }
+  get passwordNoValido() {
+    return this.formLogin.get('password').invalid && this.formLogin.get('password').touched;
   }
   navigateTo(link) {
     this.functionService.navigateTo(link);

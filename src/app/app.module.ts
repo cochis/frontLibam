@@ -11,7 +11,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+ 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,9 +27,13 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgxDatatableModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
     // ServiceWorkerModule.register('ngsw-worker.js', {   }),
-
   ],
   providers: [
     OneSignal,

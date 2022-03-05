@@ -22,9 +22,6 @@ export class SliderComponent implements OnInit {
   };
 
   ngOnInit() {
-    console.log(this.slider);
-    console.log(this.size);
-    console.log(this.speed);
     this.slides = this.slider;
   }
 
