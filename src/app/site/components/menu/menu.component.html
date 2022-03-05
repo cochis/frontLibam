@@ -1,19 +1,31 @@
+ 
+
 <ion-list>
-  <ion-item  [routerLink]="['/site/informacion-estudiante']" [queryParams]="{type: 'Register'}"  detail>
+
+
+  <ion-item  [routerLink]="['/site/home-site']" (click)="close()"  detail>
     <ion-icon name="exit" slot="start" color="primary"></ion-icon>
-    Registro de usuario
+    Inicio
   </ion-item>
-  <ion-item (click)="SignOut()" detail>
+  <ion-item  [routerLink]="['/site/informacion-estudiante']" [queryParams]="{type: 'Register'}" (click)="close()" detail>
+    <ion-icon name="exit" slot="start" color="primary"></ion-icon>
+    Registro de estudiante
+  </ion-item>
+  <ion-item  [routerLink]="['/site/views/students']" [queryParams]="{type: 'Register'}"(click)="close()"  detail>
+    <ion-icon name="exit" slot="start" color="primary"></ion-icon>
+    Ver estudiantes
+  </ion-item>
+  <ion-item  [routerLink]="['/site/informacion-profesor']" [queryParams]="{type: 'Register'}" (click)="close()" detail>
+    <ion-icon name="exit" slot="start" color="primary"></ion-icon>
+    Registro de porfesor
+  </ion-item>
+  <ion-item  [routerLink]="['/site/views/profesors']" [queryParams]="{type: 'Register'}" (click)="close()" detail>
+    <ion-icon name="exit" slot="start" color="primary"></ion-icon>
+    Ver porfesores
+  </ion-item>
+  <ion-item (click)="SignOut()"  (click)="close()"detail>
     <ion-icon name="exit" slot="start" color="primary"></ion-icon>
     Registro de Clases
   </ion-item>
-  <ion-item (click)="SignOut()" detail>
-    <ion-icon name="exit" slot="start" color="primary"></ion-icon>
-    perfil
-  </ion-item>
-  <ion-item (click)="SignOut()" detail>
-    <ion-icon name="exit" slot="start" color="primary"></ion-icon>
-    Salir
-  </ion-item>
-
+  
 </ion-list>

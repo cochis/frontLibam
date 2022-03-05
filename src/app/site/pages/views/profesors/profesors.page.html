@@ -8,7 +8,7 @@
     <ion-card>
       <ion-card-header>
         <h4 class="theme" style="text-align:center">
-          Estudiantes
+          Profesores
         </h4>
       </ion-card-header>
       <ion-card-content>
@@ -22,8 +22,6 @@
                 <ion-select-option selected value="name">Nombre</ion-select-option>
                 <ion-select-option selected value="lastName">Apellido paterno</ion-select-option>
                 <ion-select-option selected value="surName">Apellido materno</ion-select-option>
-                <ion-select-option selected value="grade">Grado</ion-select-option>
-                <ion-select-option selected value="cycle">Ciclo</ion-select-option>
                 <ion-select-option selected value="age">Edad</ion-select-option>
                 <ion-select-option selected value="email">Correo eléctronico</ion-select-option>
                 <ion-select-option selected value="direction">Dirección</ion-select-option>
@@ -50,19 +48,19 @@
                 Delete
               </ion-item-option>
             </ion-item-options>
-            <ion-item *ngFor="let student of students| filtro:textoBuscar:typeSearch">
-              <ion-label>{{student.name}} {{student.lastName}} {{student.surName}} {{student.cycle}}</ion-label>
+            <ion-item *ngFor="let profesor of profesors| filtro:textoBuscar:typeSearch">
+              <ion-label>{{profesor.name}} {{profesor.lastName}} {{profesor.surName}} {{profesor.type =='PRB' ? 'Base': 'Cocurricular' }}</ion-label>
               <ion-buttons slot="end">
-                <ion-button [routerLink]="['/site/informacion-estudiante']" [queryParams]="{type: 'View',id:student.id}">
+                <ion-button [routerLink]="['/site/informacion-profesor']" [queryParams]="{type: 'View',id:profesor.id}">
                   <ion-icon name="eye-sharp"></ion-icon>
                 </ion-button>
-                <ion-button [routerLink]="['/site/informacion-estudiante']" [queryParams]="{type: 'Edit',id:student.id}">
+                <ion-button [routerLink]="['/site/informacion-profesor']" [queryParams]="{type: 'Edit',id:profesor.id}">
                   <ion-icon name="create-sharp"></ion-icon>
                 </ion-button>
-                <ion-button *ngIf="student.actived">
+                <ion-button *ngIf="profesor.actived">
                   <ion-icon name="bulb-sharp" color="primary"></ion-icon>
                 </ion-button>
-                <ion-button *ngIf="!student.actived">
+                <ion-button *ngIf="!profesor.actived">
                   <ion-icon name="bulb-sharp" color="tertiary"></ion-icon>
                 </ion-button>
               </ion-buttons>

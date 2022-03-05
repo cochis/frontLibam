@@ -66,7 +66,7 @@ export class FirebaseService {
             });
     }
     // Sign up with email/password
-    async SignUp(email: string, password: string) {
+    async SignUp(email: string, password: string, role?: string) {
         // await this.afAuth
         //     .createUserWithEmailAndPassword(email, password)
         //     .then((result) => {
@@ -83,7 +83,8 @@ export class FirebaseService {
             if (user) {
                 console.log('user', user)
                 this.SendVerificationMail()
-                this.SetUserData(user);
+
+                this.SetUserData(user, role);
                 return user;
             } else {
                 return null;
@@ -144,17 +145,19 @@ export class FirebaseService {
     /* Setting up user data when sign in with username/password, 
     sign up with username/password and sign in with social auth  
     provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-    SetUserData(user: any) {
+    SetUserData(user: any, role?: string) {
         const userRef: AngularFirestoreDocument<any> = this.afs.doc(
             `users/${user.uid}`
         );
+
+
         const userData: User = {
             uid: user.uid,
             email: user.email,
             displayName: user.displayName,
             photoURL: user.photoURL,
             emailVerified: user.emailVerified,
-            role: ''
+            role: role ? role : ''
         };
         return userRef.set(userData, {
             merge: true,

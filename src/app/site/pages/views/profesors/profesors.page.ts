@@ -5,16 +5,16 @@ import { FirebaseService } from 'src/app/site/services/firebase.service';
 import { FirebasebdService } from 'src/app/site/services/firebasebd.service';
 
 @Component({
-  selector: 'app-students',
-  templateUrl: './students.page.html',
-  styleUrls: ['./students.page.scss'],
+  selector: 'app-profesors',
+  templateUrl: './profesors.page.html',
+  styleUrls: ['./profesors.page.scss'],
 })
-export class StudentsPage implements OnInit {
+export class ProfesorsPage implements OnInit {
   flagScreen: boolean = false;
   type = '';
   text = '';
-  student: any;
-  students: any[];
+  profesor: any;
+  profesors: any[];
   typeSearch = '';
   textoBuscar: string = '';
   constructor(
@@ -24,15 +24,15 @@ export class StudentsPage implements OnInit {
     public database: FirebasebdService) { }
 
   ngOnInit() {
-    this.database.getAll('students').then(firebaseResponse => {
+    this.database.getAll('profesors').then(firebaseResponse => {
       firebaseResponse.subscribe(listaDeUsuariosRef => {
 
-        this.students = listaDeUsuariosRef.map(usuarioRef => {
+        this.profesors = listaDeUsuariosRef.map(usuarioRef => {
           let usuario = usuarioRef.payload.doc.data();
           usuario['id'] = usuarioRef.payload.doc.id;
           return usuario;
         })
-        console.log(this.students);
+        console.log(this.profesors);
 
       })
     })
@@ -59,4 +59,5 @@ export class StudentsPage implements OnInit {
     console.log(event.detail.value);
     this.typeSearch = event.detail.value;
   }
+
 }

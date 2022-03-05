@@ -27,10 +27,10 @@
         <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PDF'">
             Padre de Familia
         </h4>
-        <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PRC'">
+        <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PRB'">
             Profesor base
         </h4>
-        <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PRN'">
+        <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PRC'">
             Profesor materias extras
         </h4>
 
@@ -71,6 +71,54 @@
                     <ion-card-subtitle>
                         <ion-button color="secondary" expand="block"  
                         [routerLink]="['/site/informacion-estudiante']" [queryParams]="{type: 'Register'}"
+                         >
+                            Registrar Alumnos
+                        </ion-button>
+                    </ion-card-subtitle>
+                </ion-card-header>
+            </ion-card>
+        </ion-col>
+        <ion-col size="12" size-md="4" class="fLeft">
+            <ion-card class="animated fadeIn" *ngIf="role =='ADM'">
+                <ion-card-header color="primary">
+                    <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                    <ion-card-title>Ingresar Profesores
+                    </ion-card-title>
+                    <ion-card-subtitle>
+                        <ion-button color="secondary" expand="block"  
+                        [routerLink]="['/site/informacion-profesor']" [queryParams]="{type: 'Register'}"
+                         >
+                            Registrar Alumnos
+                        </ion-button>
+                    </ion-card-subtitle>
+                </ion-card-header>
+            </ion-card>
+        </ion-col>
+        <ion-col size="12" size-md="4" class="fLeft">
+            <ion-card class="animated fadeIn" *ngIf="role =='ADM'">
+                <ion-card-header color="primary">
+                    <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                    <ion-card-title>Ingresar Cursos
+                    </ion-card-title>
+                    <ion-card-subtitle>
+                        <ion-button color="secondary" expand="block"  
+                        [routerLink]="['/site/informacion-curso']" [queryParams]="{type: 'Register'}"
+                         >
+                            Registrar Alumnos
+                        </ion-button>
+                    </ion-card-subtitle>
+                </ion-card-header>
+            </ion-card>
+        </ion-col>
+         <ion-col size="12" size-md="4" class="fLeft">
+            <ion-card class="animated fadeIn" *ngIf="role =='ADM'">
+                <ion-card-header color="primary">
+                    <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                    <ion-card-title>Ingresar Cursos
+                    </ion-card-title>
+                    <ion-card-subtitle>
+                        <ion-button color="secondary" expand="block"  
+                        [routerLink]="['/site/informacion-curso']" [queryParams]="{type: 'Register'}"
                          >
                             Registrar Alumnos
                         </ion-button>

@@ -1,39 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { StudentModel } from 'src/app/site/models/estudent.model';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { FunctionService } from 'src/app/services/functions';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ProfesorModel } from 'src/app/site/models/profesor.model';
 import { UsuarioModel } from 'src/app/site/models/usuario.model';
 import { FirebaseService } from 'src/app/site/services/firebase.service';
 import { FirebasebdService } from 'src/app/site/services/firebasebd.service';
+
 @Component({
-  selector: 'app-informacion-estudiante',
-  templateUrl: './informacion-estudiante.page.html',
-  styleUrls: ['./informacion-estudiante.page.scss'],
+  selector: 'app-informacion-profesor',
+  templateUrl: './informacion-profesor.page.html',
+  styleUrls: ['./informacion-profesor.page.scss'],
 })
-export class InformacionEstudiantePage implements OnInit {
+export class InformacionProfesorPage implements OnInit {
   flagScreen: boolean = false;
   type = '';
   text = '';
   disabled = false;
   readonly = false;
-  readEmail= false;
-  id:'';
+  readEmail = false;
   usuario: UsuarioModel;
-  estudiante: StudentModel;
-  formStudent: FormGroup;
+  profesor: ProfesorModel;
+  formProfesor: FormGroup;
   dateToday: Date = new Date();
-
   constructor(private activatedRoute: ActivatedRoute,
     public fb: FormBuilder,
     private functionService: FunctionService,
     public authService: FirebaseService,
-    public bdService: FirebasebdService
-  ) {
+    public bdService: FirebasebdService) {
     this.activatedRoute.queryParams.subscribe(params => {
       this.type = params.type;
-      this.estudiante = params.id;
-      console.log('this.estudiante', this.estudiante)
+      this.profesor = params.id;
+      console.log('this.profesor', this.profesor)
     });
     this.crearFormulario();
     this.cargarDataAlFormulario();
@@ -42,13 +40,12 @@ export class InformacionEstudiantePage implements OnInit {
   }
 
   ngOnInit() {
-
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
     console.log('this.type', this.type)
     switch (this.type) {
       case 'Register':
 
-        this.text = 'Registro de estudiante';
+        this.text = 'Registro de profesor';
         console.log('this.text', this.text);
         this.readonly = false;
         this.disabled = false;
@@ -56,13 +53,13 @@ export class InformacionEstudiantePage implements OnInit {
         break;
       case 'View':
 
-        this.text = 'Visualización de información de estudiante';
+        this.text = 'Visualización de información de profesor';
         console.log('this.text', this.text)
         this.readonly = true;
         this.disabled = true;
         this.readEmail = true;
-        console.log('this.estudiante', this.estudiante)
-        this.bdService.getById('students', this.estudiante).then(res => {
+        console.log('this.profesor', this.profesor)
+        this.bdService.getById('profesors', this.profesor).then(res => {
           res.subscribe(docRef => {
             let usuario = docRef.data();
 
@@ -79,12 +76,12 @@ export class InformacionEstudiantePage implements OnInit {
         break;
 
       case 'Edit':
-        this.text = 'Edición de información de estudiante';
+        this.text = 'Edición de información de profesor';
         console.log('this.text', this.text)
         this.readonly = false;
         this.disabled = false;
         this.readEmail = true;
-        this.bdService.getById('students', this.estudiante).then(res => {
+        this.bdService.getById('profesors', this.profesor).then(res => {
           res.subscribe(docRef => {
             let usuario = docRef.data();
 
@@ -100,17 +97,14 @@ export class InformacionEstudiantePage implements OnInit {
     }
   }
 
-
   crearFormulario() {
 
-    this.formStudent = this.fb.group({
-
+    this.formProfesor = this.fb.group({
       uid: ['', Validators.required],
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       surName: ['', Validators.required],
-      grade: ['', Validators.required],
-      cycle: ['', Validators.required],
+      type: ['', Validators.required],
       age: ['', Validators.required],
       direction: ['', Validators.required],
       phone1: [0, Validators.required],
@@ -126,18 +120,16 @@ export class InformacionEstudiantePage implements OnInit {
       email: ['', Validators.required],
     }
     );
-
   }
   cargarDataAlFormulario(data?) {
 
     if (data) {
-      this.formStudent.reset({
+      this.formProfesor.reset({
         uid: data.uid,
         name: data.name,
         lastName: data.lastName,
         surName: data.surName,
-        grade: data.grade,
-        cycle: data.cycle,
+        type: data.type,
         age: data.age,
         direction: data.direction,
         phone1: data.phone1,
@@ -153,13 +145,12 @@ export class InformacionEstudiantePage implements OnInit {
         email: data.email,
       });
     } else {
-      this.formStudent.reset({
+      this.formProfesor.reset({
         uid: '',
         name: "",
         lastName: "",
         surName: "",
-        grade: '',
-        cycle: '',
+        type: "",
         age: 0,
         direction: '',
         phone1: 0,
@@ -176,23 +167,23 @@ export class InformacionEstudiantePage implements OnInit {
       });
     }
   }
-
   async onSubmit() {
-    console.log('this.formStudent.value', this.formStudent.value)
+    console.log('this.formProfesor.value', this.formProfesor.value)
     this.functionService.presentLoading('Por favor espere');
-    let email = this.formStudent.value.email;
+    let email = this.formProfesor.value.email;
     console.log('email', email)
-    let password = 'Libam2022';
+    let password = 'ProfLibam2022';
     console.log('password', password)
+    let type = this.formProfesor.value.type;
     try {
-      await this.authService.SignUp(email, password, 'STD').then(user => {
+      await this.authService.SignUp(email, password, type).then(user => {
         if (user) {
           this.functionService.closeLoading();
           this.functionService.presentToast('Usuario Creado');
-          this.bdService.create('students', this.formStudent.value).then(student => {
-            console.log('student', student)
-            this.functionService.presentToast('Estudiante Creado');
-            this.functionService.navigateTo('site/views/students');
+          this.bdService.create('profesors', this.formProfesor.value).then(profesor => {
+            console.log('profesor', profesor)
+            this.functionService.presentToast('Profesor Creado');
+            this.functionService.navigateTo('site/views/profesors');
           });
         } else {
           this.functionService.closeLoading();
@@ -211,11 +202,11 @@ export class InformacionEstudiantePage implements OnInit {
     }
 
   }
-  updateStudent() {
-    console.log('this.formStudent.value', this.formStudent.value);
-    this.bdService.update('students', this.estudiante, this.formStudent.value).then(res => {
+  updateProfesor() {
+    console.log('this.formProfesor.value', this.formProfesor.value);
+    this.bdService.update('profesors', this.profesor, this.formProfesor.value).then(res => {
       console.log('res', res);
-      this.navigateTo('site/views/students');
+      this.navigateTo('site/views/profesors');
 
     })
   }
@@ -236,7 +227,7 @@ export class InformacionEstudiantePage implements OnInit {
     console.log('edad', edad);
     console.log('edad', Number(edad));
     console.log('edad', edad.toString());
-    this.formStudent.reset({
+    this.formProfesor.reset({
       age: edad
 
     });
@@ -249,12 +240,5 @@ export class InformacionEstudiantePage implements OnInit {
     } else {
       this.flagScreen = false;
     }
-  }
-
-  genRand(len) {
-    return Math.random().toString(36).substring(2, len + 2);
-  }
-  getRandomNumberBetween(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 }

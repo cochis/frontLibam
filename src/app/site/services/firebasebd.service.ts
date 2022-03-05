@@ -43,6 +43,7 @@ export class FirebasebdService {
 
 
     async update(collection, id, dato) {
+       
         try {
             return await this.firestore.collection(collection).doc(id).set(dato);
         } catch (error) {

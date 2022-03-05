@@ -34,8 +34,11 @@ export class MenuComponent implements OnInit {
     
     
   }
+  close(){
+    this.popoverCtrl.dismiss();
+  }
   navigateTo(link) {
     this.functionService.navigateTo(link);
-
+    this.popoverCtrl.dismiss();
   }
 }

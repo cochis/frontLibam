@@ -66,10 +66,32 @@ const routes: Routes = [
     loadChildren: () => import('./site/pages/views/students/students.module').then( m => m.StudentsPageModule)
   },
   {
+    path: 'site/informacion-profesor',
+    loadChildren: () => import('./site/pages/recopilacion/informacion-profesor/informacion-profesor.module').then( m => m.InformacionProfesorPageModule)
+  },
+  {
+    path: 'site/informacion-clase',
+    loadChildren: () => import('./site/pages/recopilacion/informacion-clase/informacion-clase.module').then( m => m.InformacionClasePageModule)
+  },
+  {
+    path: 'site/views/profesors',
+    loadChildren: () => import('./site/pages/views/profesors/profesors.module').then( m => m.ProfesorsPageModule)
+  },
+  {
+    path: 'site/views/courses',
+    loadChildren: () => import('./site/pages/views/courses/courses.module').then( m => m.CoursesPageModule)
+  },
+  {
+    path: 'site/views/classrooms',
+    loadChildren: () => import('./site/pages/views/classrooms/classrooms.module').then( m => m.ClassroomsPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   }
+
+
 
 
 
