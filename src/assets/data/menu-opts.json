@@ -39,7 +39,7 @@
         "name": "Intranet",
         "redirectTo": "/site/login",
         "type": "general",
-        "activated": true
+        "activated": false
     },
     {
         "icon": "accessibility",

@@ -79,7 +79,7 @@ export class InformacionCursoPage implements OnInit {
     });
     this.crearFormulario();
     this.cargarDataAlFormulario();
-
+    this.resetForm();
   }
 
   ngOnInit() {

@@ -10,14 +10,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   items = Array(7);
+  role = '';
   constructor(private popoverCtrl: PopoverController,
     private afs: FirebaseService,
     private functionService: FunctionService,
     private router: ActivatedRoute) { }
 
-  ngOnInit() { }
-  onClick(valor: number) {
+  ngOnInit() {
 
+    setTimeout(function(){
+      this.role = localStorage.getItem('Role');
+   }, 2000);//wait 2 seconds
+   }
+
+
+  onClick(valor: number) {
+     
     this.popoverCtrl.dismiss({
       item: valor
     });
@@ -29,12 +37,12 @@ export class MenuComponent implements OnInit {
     this.navigateTo('/home')
     this.popoverCtrl.dismiss();
   }
-  navTo(type,params,value) {
-    this.functionService.navParams(type,params,value);
-    
-    
+  navTo(type, params, value) {
+    this.functionService.navParams(type, params, value);
+
+
   }
-  close(){
+  close() {
     this.popoverCtrl.dismiss();
   }
   navigateTo(link) {

@@ -6,8 +6,8 @@
 </ion-list>
 
 <!-- Custom Icon -->
-<ion-accordion-group>
-  <ion-accordion value="alumnos" toggle-icon="arrow-down-circle">
+<ion-accordion-group *ngIf="role === 'ADM'">
+  <ion-accordion value="alumnos" toggle-icon="arrow-down-circle" >
     <ion-item slot="header">
       <ion-icon name="person" color="secondary"></ion-icon>
       <ion-label>Alumnos</ion-label>
@@ -25,7 +25,7 @@
 
     </ion-list>
   </ion-accordion>
-  <ion-accordion value="profesores" toggle-icon="arrow-down-circle">
+  <ion-accordion value="profesores" toggle-icon="arrow-down-circle"  >
     <ion-item slot="header">
       <ion-icon name="person" color="secondary"></ion-icon>
       <ion-label>Profesores</ion-label>
@@ -43,7 +43,7 @@
 
     </ion-list>
   </ion-accordion>
-  <ion-accordion value="cursos" toggle-icon="arrow-down-circle">
+  <ion-accordion value="cursos" toggle-icon="arrow-down-circle"  >
     <ion-item slot="header">
       <ion-icon name="library" color="secondary"></ion-icon>
       <ion-label>Cursos</ion-label>
@@ -59,7 +59,7 @@
       </ion-item>
     </ion-list>
   </ion-accordion>
-  <ion-accordion value="clases" toggle-icon="arrow-down-circle">
+  <ion-accordion value="clases" toggle-icon="arrow-down-circle" >
     <ion-item slot="header">
       <ion-icon name="library" color="secondary"></ion-icon>
       <ion-label>Clases</ion-label>

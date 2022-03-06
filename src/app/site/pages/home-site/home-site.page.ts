@@ -153,6 +153,7 @@ export class HomeSitePage implements OnInit {
     console.log('this.user', this.user)
     this.role = this.user.role ? this.user.role : "";
     console.log('this.role', this.role)
+    localStorage.setItem('Role', this.role);
   }
   obtenerPorId(id) {
 

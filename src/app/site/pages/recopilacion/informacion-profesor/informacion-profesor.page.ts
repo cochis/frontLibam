@@ -35,6 +35,7 @@ export class InformacionProfesorPage implements OnInit {
     });
     this.crearFormulario();
     this.cargarDataAlFormulario();
+    this.resetForm();
     console.log('this.dateToday', this.dateToday)
     console.log('this.dateToday.toISOString()', this.dateToday.toISOString())
   }
