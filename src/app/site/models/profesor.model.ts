@@ -4,6 +4,7 @@ export class ProfesorModel {
     lastName: string;
     surName: string;
     type:string;
+    subjectMatter:string;
     idUser: string;
     age: number;
     email: string;

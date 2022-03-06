@@ -51,7 +51,7 @@
               </ion-item-option>
             </ion-item-options>
             <ion-item *ngFor="let student of students| filtro:textoBuscar:typeSearch">
-              <ion-label>{{student.name}} {{student.lastName}} {{student.surName}} {{student.cycle}}</ion-label>
+              <ion-label>{{student.name}} {{student.lastName}} {{student.surName}}  </ion-label>
               <ion-buttons slot="end">
                 <ion-button [routerLink]="['/site/informacion-estudiante']" [queryParams]="{type: 'View',id:student.id}">
                   <ion-icon name="eye-sharp"></ion-icon>

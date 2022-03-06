@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { LoadingController } from '@ionic/angular';
 import { FunctionService } from 'src/app/services/functions';
@@ -6,6 +6,8 @@ import { SeoService } from 'src/app/services/seo.service';
 import { User, UserGoogle } from '../../interfaces/interfaces';
 import { UsuarioModel } from '../../models/usuario.model';
 import { FirebasebdService } from '../../services/firebasebd.service';
+import { IonAccordionGroup } from '@ionic/angular';
+import { ClasesModel } from '../../models/clases.model';
 
 @Component({
   selector: 'app-home-site',
@@ -13,11 +15,15 @@ import { FirebasebdService } from '../../services/firebasebd.service';
   styleUrls: ['./home-site.page.scss'],
 })
 export class HomeSitePage implements OnInit {
+  @ViewChild(IonAccordionGroup, { static: true }) accordionGroup: IonAccordionGroup;
   onConstruction: boolean = false;
   flagScreen: boolean = false;
   userGoogle: UserGoogle;
   user: UsuarioModel;
+  clases: any;
   role: string = '';
+  typeSearch = '';
+  textoBuscar: string = '';
   loading: HTMLIonLoadingElement;
   constructor(
     private functionService: FunctionService,
@@ -111,6 +117,27 @@ export class HomeSitePage implements OnInit {
       this.getRole()
       this.loading.dismiss();
     }, 3000);
+    this.database.getAll('clases').then(firebaseResponse => {
+      firebaseResponse.subscribe(listaDeUsuariosRef => {
+        this.clases = listaDeUsuariosRef.map(usuarioRef => {
+          let usuario = usuarioRef.payload.doc.data();
+          usuario['id'] = usuarioRef.payload.doc.id;
+          return usuario;
+        })
+        console.log("aqui estan ", this.clases);
+      })
+    })
+    // this.bdService.getById('courses', this.curso).then(res => {
+    //   res.subscribe(docRef => {
+    //     let usuario = docRef.data();
+
+    //     console.log('usuario', usuario)
+    //     this.cursoData = usuario
+    //     console.log('this.cursoData', this.cursoData)
+    //     this.cargarDataAlFormulario(usuario);
+
+    //   })
+    // })
 
 
   }
@@ -163,5 +190,13 @@ export class HomeSitePage implements OnInit {
     await this.loading.present();
 
   }
-
+  tipoBusqueda(event) {
+    console.log(event);
+    console.log(event.detail.value);
+    this.typeSearch = event.detail.value;
+  }
+  onSearchChange(event) {
+    console.log(event);
+    this.textoBuscar = event.detail.value;
+  }
 }

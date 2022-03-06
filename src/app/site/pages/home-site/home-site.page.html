@@ -1,4 +1,4 @@
-<app-headerSite style=" text-align: center; width: 100%;" titulo="Intraner escolar Inicio"></app-headerSite>
+<app-headerSite style=" text-align: center; width: 100%;" titulo="Intranet escolar Inicio"></app-headerSite>
 <ion-content *ngIf="onConstruction">
     <ion-row>
         <ion-col size="12" class="center">
@@ -16,199 +16,259 @@
 </ion-content>
 
 <ion-content class="center" (window:resize)="onResize($event)" *ngIf="!onConstruction">
+    <ion-row>
+        <ion-col size="12" class="center" style="top: 0;">
+            <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='ADM'">
+                Administrador
+            </h4>
+            <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='STD'">
+                Estudiante
+            </h4>
+            <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PDF'">
+                Padre de Familia
+            </h4>
+            <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PRC'">
+                Profesor base
+            </h4>
+            <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PRN'">
+                Profesor materias extras
+            </h4>
 
-    <ion-col size="12" class="center" style="top: 0;">
-        <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='ADM'">
-            Administrador
-        </h4>
-        <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='STD'">
-            Estudiante
-        </h4>
-        <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PDF'">
-            Padre de Familia
-        </h4>
-        <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PRB'">
-            Profesor base
-        </h4>
-        <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role=='PRC'">
-            Profesor materias extras
-        </h4>
+            <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role==''">
+                Bienvenido
+            </h4>
 
-        <h4 style="text-align:center" class="theme animated1  bounceInRight" *ngIf="role==''">
-            Bienvenido
-        </h4>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-card class="animated fadeIn" *ngIf="role !=='ADM'">
 
-    </ion-col>
-
-
-    <div class="clearboth"></div>
-
-    <ion-col size="12">
-        <ion-card class="animated fadeIn" *ngIf="role !=='ADM'">
-
-            <ion-card-header color="primary">
-                <ion-card-title><span>Por favor de terminar de llenar su registro
-                        <!-- <strong>{{user.email}}</strong>-->
-                    </span>
-                </ion-card-title>
-                <ion-card-subtitle>
-                    <ion-button color="secondary" expand="block">
-                        Registro
-                    </ion-button>
-                </ion-card-subtitle>
-
-            </ion-card-header>
-
-
-        </ion-card>
-
-        <ion-col size="12" size-md="4" class="fLeft">
-            <ion-card class="animated fadeIn" *ngIf="role =='ADM'">
                 <ion-card-header color="primary">
-                    <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
-                    <ion-card-title>Ingresar Alumnos
+                    <ion-card-title><span>Revista tus clases
+                            <!-- <strong>{{user.email}}</strong>-->
+                        </span>
                     </ion-card-title>
                     <ion-card-subtitle>
-                        <ion-button color="secondary" expand="block"  
-                        [routerLink]="['/site/informacion-estudiante']" [queryParams]="{type: 'Register'}"
-                         >
-                            Registrar Alumnos
-                        </ion-button>
+
                     </ion-card-subtitle>
+
                 </ion-card-header>
+                <ion-card-content>
+                    <ion-row>
+                        <ion-col size="12" size-md="6">
+
+                            <ion-item>
+                                <ion-label>Busqueda por</ion-label>
+                                <ion-select placeholder="Select One" name="typeSearch" [(ngModel)]="typeSearch"
+                                    (ionChange)="tipoBusqueda( $event )">
+                                    <ion-select-option selected value="subjectMatter">Materia</ion-select-option>
+                                    <ion-select-option selected value="grade">Grado</ion-select-option>
+                                  
+
+                                </ion-select>
+                            </ion-item>
+
+                        </ion-col>
+                        <ion-col size="12" size-md="6">
+                            <ion-searchbar placeholder="Buscar album" inputmode="text"
+                                (ionChange)="onSearchChange( $event )" [debounce]="250" animated></ion-searchbar>
+                        </ion-col>
+                    </ion-row>
+
+
+                    <ion-item>
+                        <ion-row style="width:100% !important">
+                            <ion-col size="3">
+                                Materia
+                            </ion-col>
+                            <ion-col size="3">
+                                Grado
+                            </ion-col>
+                            <ion-col size="3">
+                                Liga
+                            </ion-col>
+                            <ion-col size="3">
+                                ID Codigo de acceso
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item (*ngIf)="clase.actived" *ngFor="let clase of clases | filtro:textoBuscar:typeSearch">
+                        <ion-row style="width:100% !important">
+                            <ion-col size="3">
+                                {{clase.subjectMatter}}
+                            </ion-col>
+                            <ion-col size="3">
+                                {{clase.grade}}
+                            </ion-col>
+                            <ion-col size="3">
+                                <a [href]="clase.link" target="_blank">
+                                    click aqui
+                                </a>
+
+                            </ion-col>
+                            <ion-col size="3">
+                                Id : {{clase.idReunion}}
+                                <br>
+                                Código de acceso : {{clase.codigoAcceso}}
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+
+
+
+                </ion-card-content>
+
+
             </ion-card>
         </ion-col>
-        <ion-col size="12" size-md="4" class="fLeft">
-            <ion-card class="animated fadeIn" *ngIf="role =='ADM'">
-                <ion-card-header color="primary">
-                    <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
-                    <ion-card-title>Ingresar Profesores
-                    </ion-card-title>
-                    <ion-card-subtitle>
-                        <ion-button color="secondary" expand="block"  
-                        [routerLink]="['/site/informacion-profesor']" [queryParams]="{type: 'Register'}"
-                         >
-                            Registrar Alumnos
-                        </ion-button>
-                    </ion-card-subtitle>
-                </ion-card-header>
-            </ion-card>
-        </ion-col>
-        <ion-col size="12" size-md="4" class="fLeft">
-            <ion-card class="animated fadeIn" *ngIf="role =='ADM'">
-                <ion-card-header color="primary">
-                    <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
-                    <ion-card-title>Ingresar Cursos
-                    </ion-card-title>
-                    <ion-card-subtitle>
-                        <ion-button color="secondary" expand="block"  
-                        [routerLink]="['/site/informacion-curso']" [queryParams]="{type: 'Register'}"
-                         >
-                            Registrar Alumnos
-                        </ion-button>
-                    </ion-card-subtitle>
-                </ion-card-header>
-            </ion-card>
-        </ion-col>
-         <ion-col size="12" size-md="4" class="fLeft">
-            <ion-card class="animated fadeIn" *ngIf="role =='ADM'">
-                <ion-card-header color="primary">
-                    <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
-                    <ion-card-title>Ingresar Cursos
-                    </ion-card-title>
-                    <ion-card-subtitle>
-                        <ion-button color="secondary" expand="block"  
-                        [routerLink]="['/site/informacion-curso']" [queryParams]="{type: 'Register'}"
-                         >
-                            Registrar Alumnos
-                        </ion-button>
-                    </ion-card-subtitle>
-                </ion-card-header>
-            </ion-card>
-        </ion-col>
-
-        <ion-col size="12" size-md="4" class="fLeft">
-            <ion-card class="animated fadeIn" *ngIf="role =='ADM'">
-                <ion-card-header color="primary">
-                    <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
-                    <ion-card-title>Ingresar Clases
-                    </ion-card-title>
-                    <ion-card-subtitle>
-                        <ion-button color="secondary" expand="block">
-                            Registrar clases
-                        </ion-button>
-                    </ion-card-subtitle>
-                </ion-card-header>
-            </ion-card>
-        </ion-col>
-
-        <ion-col size="12" size-md="4" class="fLeft">
-            <ion-card class="animated fadeIn" *ngIf="role =='ADM'">
-                <ion-card-header color="primary">
-                    <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
-                    <ion-card-title>Blog Nuevo
-                    </ion-card-title>
-                    <ion-card-subtitle>
-                        <ion-button color="secondary" expand="block">
-                            Registrar nuevo comunicado
-                        </ion-button>
-                    </ion-card-subtitle>
-                </ion-card-header>
-            </ion-card>
-        </ion-col>
-
-    </ion-col>
-    <!-- 
-    <div class="clearboth"></div>
-
-    <div class="container70 center">
-        <ion-col size="12" class="fLeft  animated1  bounceInRight">
-            <ion-col size="12">
-                <h4 style=" color: #b89f2b;  font-size: 35px; font-weight: 800;">
-                    Misión
-                </h4>
-            </ion-col>
-
-            <ion-col size="12" size-lg="6" size-md="4" class="fLeft ion-padding-bottom">
-                <img src="/assets/img/mision.png" style="margin:auto; width: 100% ;max-height: 150px;">
-
-            </ion-col>
-            <ion-col size="12" size-lg="6" size-md="8" class="fLeft ion-padding-bottom">
-                <p>
-                    Formar alumnos críticos, constructivos, respetuosos con un alto sentido de honor, para engrandecer
-                    con su trabajo y eficacia a México.
-                </p>
-            </ion-col>
-        </ion-col>
+    </ion-row>
 
 
-    </div>
-    <div class="container70">
-        <ion-col size="12" class="center  animated1  bounceInLeft">
-            <ion-col size="12" class="fLeft ">
-                <h4 style=" color: #b89f2b;  font-size: 35px; font-weight: 800;">
-                    Visión
-                </h4>
-            </ion-col>
+    <!-- Custom Icon -->
+    <ion-accordion-group *ngIf="role =='ADM'">
+        <ion-accordion value="alumnos" toggle-icon="arrow-down-circle">
+            <ion-item slot="header">
+                <ion-label>Alumnos</ion-label>
+            </ion-item>
 
-            <ion-col size="12" size-lg="6" size-md="4" class="fLeft ion-padding-bottom">
-                <img src="/assets/img/vision.jpg" style="margin:auto; width: 100% ;max-height: 150px;">
+            <ion-list slot="content">
+                <ion-item>
+                    <ion-card class="animated fadeIn">
+                        <ion-card-header color="primary">
+                            <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                            <ion-card-title>Ver alumnos
+                            </ion-card-title>
+                            <ion-card-subtitle>
+                                <ion-button color="secondary" expand="block" [routerLink]="['/site/views/students']">
+                                    Ver alumnos
+                                </ion-button>
+                            </ion-card-subtitle>
+                        </ion-card-header>
+                    </ion-card>
+                    <ion-card class="animated fadeIn">
+                        <ion-card-header color="primary">
+                            <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                            <ion-card-title>Registrar alumno
+                            </ion-card-title>
+                            <ion-card-subtitle>
+                                <ion-button color="secondary" expand="block"
+                                    [routerLink]="['/site/informacion-estudiante']" [queryParams]="{type: 'Register'}">
+                                    Registrar Alumno
+                                </ion-button>
+                            </ion-card-subtitle>
+                        </ion-card-header>
+                    </ion-card>
+                </ion-item>
+            </ion-list>
+        </ion-accordion>
+        <ion-accordion value="profesors" toggle-icon="arrow-down-circle">
+            <ion-item slot="header">
+                <ion-label>Profesores</ion-label>
+            </ion-item>
 
-            </ion-col>
-            <ion-col size="12" size-lg="6" size-md="8" class="fLeft ion-padding-bottom">
-                <p>
-                    Rescatar la esencia del niño, con altos valores humanos, destacando nuestra identidad, para
-                    engrandecer nuestra nación.
-                </p>
-            </ion-col>
-        </ion-col>
+            <ion-list slot="content">
+                <ion-item>
+                    <ion-card class="animated fadeIn">
+                        <ion-card-header color="primary">
+                            <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                            <ion-card-title>Ver Profesores
+                            </ion-card-title>
+                            <ion-card-subtitle>
+                                <ion-button color="secondary" expand="block" [routerLink]="['/site/views/profesors']">
+                                    Ver profesores
+                                </ion-button>
+                            </ion-card-subtitle>
+                        </ion-card-header>
+                    </ion-card>
+                    <ion-card class="animated fadeIn">
+                        <ion-card-header color="primary">
+                            <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                            <ion-card-title>Registrar profesor
+                            </ion-card-title>
+                            <ion-card-subtitle>
+                                <ion-button color="secondary" expand="block"
+                                    [routerLink]="['/site/informacion-profesor']" [queryParams]="{type: 'Register'}">
+                                    Registrar profesor
+                                </ion-button>
+                            </ion-card-subtitle>
+                        </ion-card-header>
+                    </ion-card>
+                </ion-item>
+            </ion-list>
+        </ion-accordion>
+        <ion-accordion value="courses" toggle-icon="arrow-down-circle">
+            <ion-item slot="header">
+                <ion-label>Cursos</ion-label>
+            </ion-item>
 
+            <ion-list slot="content">
+                <ion-item>
+                    <ion-card class="animated fadeIn">
+                        <ion-card-header color="primary">
+                            <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                            <ion-card-title>Ver cursos
+                            </ion-card-title>
+                            <ion-card-subtitle>
+                                <ion-button color="secondary" expand="block" [routerLink]="['/site/views/courses']">
+                                    Ver cursos
+                                </ion-button>
+                            </ion-card-subtitle>
+                        </ion-card-header>
+                    </ion-card>
+                    <ion-card class="animated fadeIn">
+                        <ion-card-header color="primary">
+                            <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                            <ion-card-title>Registrar curso
+                            </ion-card-title>
+                            <ion-card-subtitle>
+                                <ion-button color="secondary" expand="block" [routerLink]="['/site/informacion-curso']"
+                                    [queryParams]="{type: 'Register'}">
+                                    Registrar curso
+                                </ion-button>
+                            </ion-card-subtitle>
+                        </ion-card-header>
+                    </ion-card>
+                </ion-item>
+            </ion-list>
+        </ion-accordion>
+        <ion-accordion value="classrooms" toggle-icon="arrow-down-circle">
+            <ion-item slot="header">
+                <ion-label>Clases</ion-label>
+            </ion-item>
 
-    </div>
+            <ion-list slot="content">
+                <ion-item>
+                    <ion-card class="animated fadeIn">
+                        <ion-card-header color="primary">
+                            <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                            <ion-card-title>Ver clases
+                            </ion-card-title>
+                            <ion-card-subtitle>
+                                <ion-button color="secondary" expand="block" [routerLink]="['/site/views/classrooms']">
+                                    Ver cursos
+                                </ion-button>
+                            </ion-card-subtitle>
+                        </ion-card-header>
+                    </ion-card>
+                    <ion-card class="animated fadeIn">
+                        <ion-card-header color="primary">
+                            <img src="/assets/img/mision.png" style="margin:auto; width: 180px; height: 120px;">
+                            <ion-card-title>Registrar clase
+                            </ion-card-title>
+                            <ion-card-subtitle>
+                                <ion-button color="secondary" expand="block" [routerLink]="['/site/informacion-clase']"
+                                    [queryParams]="{type: 'Register'}">
+                                    Registrar clase
+                                </ion-button>
+                            </ion-card-subtitle>
+                        </ion-card-header>
+                    </ion-card>
+                </ion-item>
+            </ion-list>
+        </ion-accordion>
+    </ion-accordion-group>
 
-    <div class="clearboth"></div> -->
-
-    <ion-col style=" clear: both;float:left;"> </ion-col>
 
 
 </ion-content>

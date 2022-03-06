@@ -28,6 +28,7 @@
                 [readonly]="true"></ion-datetime>
             </ion-col>
 
+
           </ion-row>
 
           <!-- Informacion personal  -->
@@ -86,51 +87,25 @@
                   </ion-input>
 
                 </ion-col>
-
-              </ion-row>
-            </ion-card-content>
-          </ion-card>
-
-
-          <!-- Informacion de la escuela -->
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Información escolar</ion-card-title>
-            </ion-card-header>
-
-            <ion-card-content>
-              <ion-row>
-
                 <ion-col size="12" size-md="6" class="fleft tjustify ">
 
-                  <ion-label position="floating">Ciclo</ion-label>
-                  <ion-select class="form-control" formControlName="cycle" [disabled]="disabled"
-                    placeholder="Selecciona una">
-                    <ion-select-option value="21-22">2021 - 2022</ion-select-option>
-                    <ion-select-option value="22-23">2022 - 2023</ion-select-option>
-                    <ion-select-option value="23-24">2023 - 2024</ion-select-option>
-                    <ion-select-option value="24-25">2024 - 2025</ion-select-option>
-                    <ion-select-option value="25-26">2025 - 2026</ion-select-option>
-                  </ion-select>
+                  <ion-label position="floating">Curp</ion-label>
+                  <ion-input class="form-control" type="text" placeholder="CURP" autocapitalize="on"
+                    formControlName="curp" [disabled]="disabled" [readonly]="readonly">
+                  </ion-input>
+
                 </ion-col>
                 <ion-col size="12" size-md="6" class="fleft tjustify ">
-
-                  <ion-label position="floating">Grado</ion-label>
-                  <ion-select class="form-control" formControlName="grade" [disabled]="disabled"
-                    placeholder="Selecciona una">
-                    <ion-select-option value="1">Primero</ion-select-option>
-                    <ion-select-option value="2">Segundo</ion-select-option>
-                    <ion-select-option value="3">Tercero</ion-select-option>
-                    <ion-select-option value="4">Cuarto</ion-select-option>
-                    <ion-select-option value="5">Quinto</ion-select-option>
-                    <ion-select-option value="6">Sexto</ion-select-option>
-                  </ion-select>
-
+                  <ion-label position="floating">Activado</ion-label>
+                  <ion-toggle color="primary" formControlName="actived" [disabled]="disabled"></ion-toggle>
                 </ion-col>
 
               </ion-row>
             </ion-card-content>
           </ion-card>
+
+
+
 
           <!-- Informacion salud -->
           <ion-card>
@@ -183,14 +158,7 @@
               <ion-row>
 
               </ion-row>
-              <ion-col size="12" size-md="6" class="fleft tjustify ">
 
-                <ion-label position="floating">Correo elctronico</ion-label>
-                <ion-input class="form-control" type="email" placeholder="Ingrese su correo electronico"
-                  formControlName="email" [disabled]="disabled" [readonly]="readEmail">
-                </ion-input>
-
-              </ion-col>
               <ion-row>
 
                 <ion-col size="12" size-md="6" class="fleft tjustify ">
@@ -209,6 +177,7 @@
                   </ion-input>
 
                 </ion-col>
+
               </ion-row>
 
 
@@ -227,6 +196,14 @@
                   <ion-label position="floating">Teléfono</ion-label>
                   <ion-input class="form-control" type="phone" placeholder="Ingresa teléfono" formControlName="phone2"
                     [disabled]="disabled" [readonly]="readonly">
+                  </ion-input>
+
+                </ion-col>
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Correo electrónico</ion-label>
+                  <ion-input class="form-control" type="email" placeholder="Ingrese su correo electronico"
+                    formControlName="email" [disabled]="disabled" [readonly]="readEmail">
                   </ion-input>
 
                 </ion-col>
@@ -249,11 +226,15 @@
             </ion-card-content>
           </ion-card>
 
-          <ion-row >
+          <ion-row>
             <ion-col>
-              <ion-button color="secondary" type="submit" expand="block" *ngIf="type === 'Register'">Registrar</ion-button>
-              <ion-button color="secondary"   expand="block" *ngIf="type === 'View'" (click)="navigateTo('site/views/students')">Salir</ion-button>
-              <ion-button color="secondary" (click)="updateStudent()" expand="block" *ngIf="type === 'Edit'">Editar</ion-button>
+              <ion-button color="secondary" type="submit" expand="block" *ngIf="type === 'Register'">Registrar
+              </ion-button>
+              <ion-button color="secondary" expand="block" *ngIf="type === 'View'"
+                (click)="navigateTo('site/views/students')">Salir</ion-button>
+              <ion-button color="secondary" (click)="updateStudent()" expand="block" *ngIf="type === 'Edit'">Editar
+              </ion-button>
+              <ion-button color="danger" [routerLink]="['/site/views/students']" expand="block">Salir</ion-button>
             </ion-col>
           </ion-row>
         </form>

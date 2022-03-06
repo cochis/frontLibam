@@ -1,9 +1,209 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>informacion-curso</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-headerSite style=" text-align: center; width: 100%;" [titulo]="text"></app-headerSite>
 
-<ion-content>
 
+<ion-content class="center" (window:resize)="onResize($event)">
+
+
+  <ion-col class="center">
+    <ion-card>
+      <ion-card-header>
+        <h4 class="theme" style="text-align:center">
+          {{text}}
+        </h4>
+
+      </ion-card-header>
+      <ion-card-content>
+
+        <form size="12" autocomplete="off" [formGroup]="formCourse" (ngSubmit)="onSubmit()"
+          style="  margin:auto; border-radius:20px; padding:25px;  box-shadow: 5px 10px #888888;">
+
+
+          <ion-row>
+
+
+            <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+              <ion-label position="floating">fecha de creacion</ion-label>
+              <ion-datetime display-format="DD MMMM YYYY" formControlName="createDate" [disabled]="disabled"
+                [readonly]="true"></ion-datetime>
+            </ion-col>
+
+          </ion-row>
+
+          <!-- Informacion personal  -->
+
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Información del curso</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-row>
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Fecha de inicio curso</ion-label>
+
+                  <ion-datetime display-format="DD MMMM YYYY" placeholder="Fecha de inicio de curso"
+                    formControlName="start" [disabled]="disabled" [readonly]="readonly"></ion-datetime>
+
+
+                </ion-col>
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Fecha de fin curso</ion-label>
+
+                  <ion-datetime display-format="DD MMMM YYYY" placeholder="Fecha de fin de curso"
+                    formControlName="finish" [disabled]="disabled" [readonly]="readonly"></ion-datetime>
+
+
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Nombre(s)</ion-label>
+                  <ion-input class="form-control" type="text" placeholder="Ingresa nombre(s)" formControlName="name"
+                    [disabled]="disabled" [readonly]="readonly">
+                  </ion-input>
+
+                </ion-col>
+
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+
+
+          <!-- Informacion de la escuela -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Información escolar</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-row>
+
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Ciclo</ion-label>
+                  <ion-select class="form-control" formControlName="cycle" [disabled]="disabled"
+                    placeholder="Selecciona una">
+                    <ion-select-option value="21-22">2021 - 2022</ion-select-option>
+                    <ion-select-option value="22-23">2022 - 2023</ion-select-option>
+                    <ion-select-option value="23-24">2023 - 2024</ion-select-option>
+                    <ion-select-option value="24-25">2024 - 2025</ion-select-option>
+                    <ion-select-option value="25-26">2025 - 2026</ion-select-option>
+                  </ion-select>
+                </ion-col>
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Grado</ion-label>
+                  <ion-select class="form-control" formControlName="grade" [disabled]="disabled"
+                    placeholder="Selecciona una">
+                    <ion-select-option value="1">Primero</ion-select-option>
+                    <ion-select-option value="2">Segundo</ion-select-option>
+                    <ion-select-option value="3">Tercero</ion-select-option>
+                    <ion-select-option value="4">Cuarto</ion-select-option>
+                    <ion-select-option value="5">Quinto</ion-select-option>
+                    <ion-select-option value="6">Sexto</ion-select-option>
+                  </ion-select>
+
+                </ion-col>
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+                  <ion-label position="floating">Activado</ion-label>
+                  <ion-toggle color="primary" formControlName="actived" [disabled]="disabled"></ion-toggle>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+
+          <!-- Informacion Clase -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Profesor base</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-row>
+
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Profesor base</ion-label>
+                  <ion-select class="form-control" formControlName="profesorBase" [disabled]="disabled"
+                    placeholder="Selecciona una">
+                    <ion-select-option [value]="profesor.id" *ngFor="let profesor of profesors | filtro:'PRB':'type'">
+                      {{profesor.name }}</ion-select-option>
+                  </ion-select>
+
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+          <!-- Informacion Profesores -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Profesor materias co-curriculares</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+
+              <ion-row>
+
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Profesor materias extra</ion-label>
+                  <ion-select class="form-control" formControlName="porfesorsCocutitulares" multiple="true"
+                    cancelText="Nah" okText="Okay!" [disabled]="disabled">
+                    <ion-select-option [value]="profesor.id" *ngFor="let profesor of profesors | filtro:'PRC':'type'">
+                      {{profesor.name }}</ion-select-option>
+                  </ion-select>
+
+                </ion-col>
+
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+
+
+          <!-- Informacion alumnos -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Agregar alumnos </ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-row>
+                <ion-searchbar placeholder="Buscar alumno por CURP" inputmode="text"
+                  (ionChange)="onSearchChange( $event )" [debounce]="250" animated></ion-searchbar>
+                <ion-col size="12" class="fleft tjustify ">
+
+                  <ion-list>
+                    <ion-item *ngFor="let student of students| filtro:textoBuscar:'curp'"
+                      (ionChange)="checkStudent( $event )" ([*ngIf])="student.actived">
+                      <ion-label>{{student.name}} {{student.lastName}} {{student.surName}} {{student.actived}}</ion-label>
+                      <ion-checkbox color="primary" [checked]="cursoData.students.includes(student.id)" slot="end"
+                        [value]="student.id" (*ngIf)="student.actived">
+                      </ion-checkbox>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+          <ion-row>
+            <ion-col>
+              <ion-button color="secondary" type="submit" expand="block" *ngIf="type === 'Register'">Registrar
+              </ion-button>
+              <ion-button color="secondary" expand="block" *ngIf="type === 'View'"
+                (click)="navigateTo('/site/views/courses')">Salir</ion-button>
+              <ion-button color="secondary" (click)="updateCourse()" expand="block" *ngIf="type === 'Edit'">Editar
+              </ion-button>
+              <ion-button color="danger" [routerLink]="['/site/views/courses']" expand="block" *ngIf="type!=='View'">
+                Salir</ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
 </ion-content>

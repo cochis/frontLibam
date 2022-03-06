@@ -9,9 +9,7 @@ export class FiltroPipe implements PipeTransform {
     texto: string = '',
     columna: string = 'name'
   ): any[] {
-    console.log('arreglo', arreglo)
-    console.log('texto', texto)
-    console.log('columna', columna)
+
     if (columna == '') {
       columna = 'name'
     }
@@ -22,8 +20,9 @@ export class FiltroPipe implements PipeTransform {
     if (!arreglo) {
       return arreglo;
     }
-
-    texto = texto.toLocaleLowerCase();
+    if( columna !== 'grade') {
+      texto = texto.toLocaleLowerCase();
+    }
 
     return arreglo.filter(
       item => item[columna].toLowerCase().includes(texto)

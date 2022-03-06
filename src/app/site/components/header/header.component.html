@@ -1,13 +1,11 @@
 <ion-header (window:resize)="onResize($event)">
 
   <ion-toolbar *ngIf="!flagScreen" color="primary" style="margin-bottom: -20px;">
-   
     <ion-title class="ion-text-capitalize" *ngIf="titulo">{{ titulo }}</ion-title>
     <ion-buttons slot="end">
-      <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      <ion-back-button color="danger"></ion-back-button>
-    </ion-buttons>
+      <ion-button (click)="presentPopover( $event )" color="light">
+        <ion-icon name="grid"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
   <!-- style="background-color: #019342;     margin-bottom: -20px;" -->

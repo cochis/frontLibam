@@ -42,7 +42,7 @@ export class InformacionEstudiantePage implements OnInit {
   }
 
   ngOnInit() {
-
+    this.functionService.returnTop();
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
     console.log('this.type', this.type)
     switch (this.type) {
@@ -109,9 +109,8 @@ export class InformacionEstudiantePage implements OnInit {
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       surName: ['', Validators.required],
-      grade: ['', Validators.required],
-      cycle: ['', Validators.required],
       age: ['', Validators.required],
+      curp: ['', Validators.required],
       direction: ['', Validators.required],
       phone1: [0, Validators.required],
       namePhone1: ['', Validators.required],
@@ -136,9 +135,8 @@ export class InformacionEstudiantePage implements OnInit {
         name: data.name,
         lastName: data.lastName,
         surName: data.surName,
-        grade: data.grade,
-        cycle: data.cycle,
         age: data.age,
+        curp: data.curp,
         direction: data.direction,
         phone1: data.phone1,
         namePhone1: data.namePhone1,
@@ -153,27 +151,7 @@ export class InformacionEstudiantePage implements OnInit {
         email: data.email,
       });
     } else {
-      this.formStudent.reset({
-        uid: '',
-        name: "",
-        lastName: "",
-        surName: "",
-        grade: '',
-        cycle: '',
-        age: 0,
-        direction: '',
-        phone1: 0,
-        namePhone1: '',
-        phone2: '',
-        namePhone2: '',
-        bloodType: '',
-        allegies: '',
-        bornDate: '',
-        createDate: this.dateToday.toISOString(),
-        actived: false,
-        createdBy: '',
-        email: ''
-      });
+      this.resetForm();
     }
   }
 
@@ -256,5 +234,27 @@ export class InformacionEstudiantePage implements OnInit {
   }
   getRandomNumberBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+  resetForm(){
+    this.formStudent.reset({
+      uid: '',
+      name: "",
+      lastName: "",
+      surName: "",
+      age: 0,
+      curp: '',
+      direction: '',
+      phone1: 0,
+      namePhone1: '',
+      phone2: '',
+      namePhone2: '',
+      bloodType: '',
+      allegies: '',
+      bornDate: '',
+      createDate: this.dateToday.toISOString(),
+      actived: false,
+      createdBy: '',
+      email: ''
+    });
   }
 }

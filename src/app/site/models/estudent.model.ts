@@ -4,9 +4,8 @@ export class StudentModel {
     lastName: string;
     surName: string;
     idUser: string;
-    grade: string;
-    cycle: string;
     age: number;
+    curp:string;
     email: string;
     direction: string;
     phone1: number;

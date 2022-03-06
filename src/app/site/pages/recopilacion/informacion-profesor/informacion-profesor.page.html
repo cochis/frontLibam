@@ -18,27 +18,61 @@
           style="  margin:auto; border-radius:20px; padding:25px;  box-shadow: 5px 10px #888888;">
 
 
-          <ion-row>
 
 
-            <ion-col size="12" size-md="6" class="fleft tjustify ">
 
-              <ion-label position="floating">Fecha de creacion</ion-label>
-              <ion-datetime display-format="DD MMMM YYYY" formControlName="createDate" [disabled]="disabled"
-                [readonly]="true"></ion-datetime>
-            </ion-col>
-            <ion-col size="12" size-md="6" class="fleft tjustify ">
 
-              <ion-label position="floating">Tipo de profesor</ion-label>
-              <ion-select class="form-control" formControlName="type" [disabled]="disabled"
-                placeholder="Selecciona una">
-                <ion-select-option value="PRB">Profesor base</ion-select-option>
-                <ion-select-option value="PRC">Profesor de materias cocurriculares</ion-select-option>
-              </ion-select>
 
-            </ion-col>
+          <!-- Informacion personal  -->
 
-          </ion-row>
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Información escolar</ion-card-title>
+            </ion-card-header>
+            <ion-row>
+              <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                <ion-label position="floating">Fecha de creacion</ion-label>
+                <ion-datetime display-format="DD MMMM YYYY" formControlName="createDate" [disabled]="disabled"
+                  [readonly]="true"></ion-datetime>
+              </ion-col>
+            </ion-row>
+            <ion-card-content>
+
+              <ion-row>
+
+
+
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Tipo de profesor</ion-label>
+                  <ion-select class="form-control" formControlName="type" [disabled]="disabled"
+                    placeholder="Selecciona una">
+                    <ion-select-option value="PRB">Profesor base</ion-select-option>
+                    <ion-select-option value="PRC">Profesor de materias cocurriculares</ion-select-option>
+                  </ion-select>
+
+                </ion-col>
+
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Materia</ion-label>
+                  <ion-select class="form-control" formControlName="subjectMatter" [disabled]="disabled"
+                    placeholder="Selecciona una">
+                    <ion-select-option value="SBB">Profesor base</ion-select-option>
+                    <ion-select-option value="PEF">Profesor de educación física</ion-select-option>
+                    <ion-select-option value="PIN">Profesor de ingles</ion-select-option>
+                    <ion-select-option value="PMS">Profesor de música</ion-select-option>
+                    <ion-select-option value="PDZ">Profesor de danza</ion-select-option>
+                  </ion-select>
+
+                </ion-col>
+
+              </ion-row>
+
+            </ion-card-content>
+          </ion-card>
 
           <!-- Informacion personal  -->
 
@@ -96,7 +130,10 @@
                   </ion-input>
 
                 </ion-col>
-
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+                  <ion-label position="floating">Activado</ion-label>
+                  <ion-toggle color="primary" formControlName="actived" [disabled]="disabled"></ion-toggle>
+                </ion-col>
               </ion-row>
             </ion-card-content>
           </ion-card>
@@ -157,7 +194,7 @@
               </ion-row>
               <ion-col size="12" size-md="6" class="fleft tjustify ">
 
-                <ion-label position="floating">Correo elctronico</ion-label>
+                <ion-label position="floating">Correo electrónico</ion-label>
                 <ion-input class="form-control" type="email" placeholder="Ingrese su correo electronico"
                   formControlName="email" [disabled]="disabled" [readonly]="readEmail">
                 </ion-input>
@@ -229,6 +266,7 @@
                 (click)="navigateTo('site/views/profesors')">Salir</ion-button>
               <ion-button color="secondary" (click)="updateProfesor()" expand="block" *ngIf="type === 'Edit'">Editar
               </ion-button>
+              <ion-button color="danger" [routerLink]="['/site/views/profesors']" expand="block">Salir</ion-button>
             </ion-col>
           </ion-row>
         </form>

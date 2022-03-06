@@ -1,9 +1,81 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>classrooms</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-headerSite style=" text-align: center; width: 100%;" [titulo]="text"></app-headerSite>
 
-<ion-content>
 
+<ion-content class="center" (window:resize)="onResize($event)">
+
+
+  <ion-col class="center">
+    <ion-card>
+      <ion-card-header>
+        <h4 class="theme" style="text-align:center">
+          Clases
+        </h4>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="12" size-md="6">
+
+            <ion-item>
+              <ion-label>Busqueda por</ion-label>
+              <ion-select placeholder="Select One" name="typeSearch" [(ngModel)]="typeSearch"
+                (ionChange)="tipoBusqueda( $event )">
+                <ion-select-option selected value="name">Nombre</ion-select-option>
+                <ion-select-option selected value="lastName">Apellido paterno</ion-select-option>
+                <ion-select-option selected value="surName">Apellido materno</ion-select-option>
+                <ion-select-option selected value="grade">Grado</ion-select-option>
+                <ion-select-option selected value="cycle">Ciclo</ion-select-option>
+                <ion-select-option selected value="age">Edad</ion-select-option>
+                <ion-select-option selected value="email">Correo eléctronico</ion-select-option>
+                <ion-select-option selected value="direction">Dirección</ion-select-option>
+                <ion-select-option selected value="bloodType">Tipo de sangre</ion-select-option>
+                <ion-select-option selected value="allegies">Alergias</ion-select-option>
+                <ion-select-option selected value="bornDate">Fecha de nacimiento</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-searchbar placeholder="Buscar album" inputmode="text" (ionChange)="onSearchChange( $event )"
+              [debounce]="250" animated></ion-searchbar>
+          </ion-col>
+
+        </ion-row>
+
+
+        <ion-list>
+          <ion-item-sliding>
+            <ion-item-options side="start">
+              <ion-item-option color="danger" expandable>
+                <ion-icon slot="bottom" name="archive"></ion-icon>
+                Delete
+              </ion-item-option>
+            </ion-item-options>
+            <ion-item *ngFor="let clase of clases| filtro:textoBuscar:typeSearch">
+              <ion-label>{{clase.subjectMatter}} {{clase.grade}} {{clase.cycle}} </ion-label>
+              <ion-buttons slot="end">
+                <ion-button [routerLink]="['/site/informacion-clase']" [queryParams]="{type: 'View',id:clase.id}">
+                  <ion-icon name="eye-sharp"></ion-icon>
+                </ion-button>
+                <ion-button [routerLink]="['/site/informacion-clase']" [queryParams]="{type: 'Edit',id:clase.id}">
+                  <ion-icon name="create-sharp"></ion-icon>
+                </ion-button>
+                <ion-button *ngIf="clase.actived">
+                  <ion-icon name="bulb-sharp" color="primary"></ion-icon>
+                </ion-button>
+                <ion-button *ngIf="!clase.actived">
+                  <ion-icon name="bulb-sharp" color="tertiary"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="tertiary" expandable>
+                <ion-icon slot="bottom" name="archive"></ion-icon>
+                Archive
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
 </ion-content>

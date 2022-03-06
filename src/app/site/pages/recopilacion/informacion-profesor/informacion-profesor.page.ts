@@ -105,6 +105,7 @@ export class InformacionProfesorPage implements OnInit {
       lastName: ['', Validators.required],
       surName: ['', Validators.required],
       type: ['', Validators.required],
+      subjectMatter: ['', Validators.required],
       age: ['', Validators.required],
       direction: ['', Validators.required],
       phone1: [0, Validators.required],
@@ -130,6 +131,7 @@ export class InformacionProfesorPage implements OnInit {
         lastName: data.lastName,
         surName: data.surName,
         type: data.type,
+        subjectMatter: data.subjectMatter,
         age: data.age,
         direction: data.direction,
         phone1: data.phone1,
@@ -145,26 +147,7 @@ export class InformacionProfesorPage implements OnInit {
         email: data.email,
       });
     } else {
-      this.formProfesor.reset({
-        uid: '',
-        name: "",
-        lastName: "",
-        surName: "",
-        type: "",
-        age: 0,
-        direction: '',
-        phone1: 0,
-        namePhone1: '',
-        phone2: '',
-        namePhone2: '',
-        bloodType: '',
-        allegies: '',
-        bornDate: '',
-        createDate: this.dateToday.toISOString(),
-        actived: false,
-        createdBy: '',
-        email: ''
-      });
+     this.resetForm();
     }
   }
   async onSubmit() {
@@ -206,6 +189,7 @@ export class InformacionProfesorPage implements OnInit {
     console.log('this.formProfesor.value', this.formProfesor.value);
     this.bdService.update('profesors', this.profesor, this.formProfesor.value).then(res => {
       console.log('res', res);
+      this.resetForm();
       this.navigateTo('site/views/profesors');
 
     })
@@ -240,5 +224,28 @@ export class InformacionProfesorPage implements OnInit {
     } else {
       this.flagScreen = false;
     }
+  }
+  resetForm(){
+    this.formProfesor.reset({
+      uid: '',
+      name: "",
+      lastName: "",
+      surName: "",
+      type: "",
+      subjectMatter: "",
+      age: 0,
+      direction: '',
+      phone1: 0,
+      namePhone1: '',
+      phone2: '',
+      namePhone2: '',
+      bloodType: '',
+      allegies: '',
+      bornDate: '',
+      createDate: this.dateToday.toISOString(),
+      actived: false,
+      createdBy: '',
+      email: ''
+    });
   }
 }

@@ -105,5 +105,8 @@ export class FunctionService {
   async closeLoading() {
     this.loading.dismiss();
   }
+  returnTop(){
+    window.scrollTo(0, 0);
+  }
 
 }

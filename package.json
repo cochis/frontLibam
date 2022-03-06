@@ -24,17 +24,17 @@
     "@capacitor/core": "2.4.7",
     "@ionic-native/core": "^5.31.1",
     "@ionic-native/onesignal": "^5.31.1",
-    "@ionic/angular": "^5.5.2",
+    "@ionic/angular": "^6.0.10",
     "@swimlane/ngx-datatable": "^19.0.0",
     "animate.css": "^4.1.1",
     "cordova-android": "9.0.0",
     "emailjs-com": "^2.6.4",
     "firebase": "^9.6.7",
+    "rxfire": "^6.0.0",
     "rxjs": "~6.6.0",
     "secure-ls": "^1.2.6",
     "tslib": "^2.0.0",
-    "zone.js": "~0.11.4",
-    "rxfire": "^6.0.0"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.16",
