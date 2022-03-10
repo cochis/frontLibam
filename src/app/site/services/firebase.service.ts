@@ -10,6 +10,8 @@ import { User, UserGoogle } from '../interfaces/interfaces';
 import { FirebasebdService } from './firebasebd.service';
 import { FunctionService } from 'src/app/services/functions';
 import { id } from '@swimlane/ngx-datatable';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 // import firebaseApp from './credentials';
 @Injectable({
     providedIn: 'root'
@@ -17,6 +19,7 @@ import { id } from '@swimlane/ngx-datatable';
 export class FirebaseService {
     public auth;
     userData: any;
+    public user$: Observable<User>;
     constructor(
         public afs: AngularFirestore,
         public afAuth: AngularFireAuth,
@@ -67,16 +70,7 @@ export class FirebaseService {
     }
     // Sign up with email/password
     async SignUp(email: string, password: string, role?: string) {
-        // await this.afAuth
-        //     .createUserWithEmailAndPassword(email, password)
-        //     .then((result) => {
-        //         console.log('result', result.user)
-        //         return this.SetUserData(result.user);
-
-        //     })
-        //     .catch((error) => {
-        //         window.alert(error.message);
-        //     });
+        console.log('SignUp  role', role)
 
         try {
             const { user } = await this.afAuth.createUserWithEmailAndPassword(email, password);
@@ -108,7 +102,8 @@ export class FirebaseService {
         return this.afAuth
             .sendPasswordResetEmail(passwordResetEmail)
             .then(() => {
-                window.alert('Password reset email sent, check your inbox.');
+                // window.alert('Password reset email sent, check your inbox.');
+                this.functionService.presentToast("El cambio de contraseña se ha enviado a su  correo ");
             })
             .catch((error) => {
                 window.alert(error);

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/is-loging.guard';
+import { isLogoutGuard } from './guards/is-logout.guard';
 import { LoginPageModule } from './site/pages/login/login.module';
 
 const routes: Routes = [
@@ -40,11 +42,13 @@ const routes: Routes = [
   },
   {
     path: 'site/login',
-    loadChildren: () => import('./site/pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./site/pages/login/login.module').then( m => m.LoginPageModule),
+    canActivate: [isLogoutGuard],
   },
   {
     path: 'site/home-site',
-    loadChildren: () => import('./site/pages/home-site/home-site.module').then( m => m.HomeSitePageModule)
+    loadChildren: () => import('./site/pages/home-site/home-site.module').then( m => m.HomeSitePageModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'site/verify-email',
@@ -52,44 +56,63 @@ const routes: Routes = [
   },
   {
     path: 'site/informacion-estudiante',
-    loadChildren: () => import('./site/pages/recopilacion/informacion-estudiante/informacion-estudiante.module').then( m => m.InformacionEstudiantePageModule)
+    loadChildren: () => import('./site/pages/recopilacion/informacion-estudiante/informacion-estudiante.module').then( m => m.InformacionEstudiantePageModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'site/informacion-tutor',
-    loadChildren: () => import('./site/pages/recopilacion/informacion-tutor/informacion-tutor.module').then( m => m.InformacionTutorPageModule)
+    loadChildren: () => import('./site/pages/recopilacion/informacion-tutor/informacion-tutor.module').then( m => m.InformacionTutorPageModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'site/informacion-curso',
-    loadChildren: () => import('./site/pages/recopilacion/informacion-curso/informacion-curso.module').then( m => m.InformacionCursoPageModule)
+    loadChildren: () => import('./site/pages/recopilacion/informacion-curso/informacion-curso.module').then( m => m.InformacionCursoPageModule),
+    canActivate: [AuthGuard],
   },   {
     path: 'site/views/students',
-    loadChildren: () => import('./site/pages/views/students/students.module').then( m => m.StudentsPageModule)
+    loadChildren: () => import('./site/pages/views/students/students.module').then( m => m.StudentsPageModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'site/informacion-profesor',
-    loadChildren: () => import('./site/pages/recopilacion/informacion-profesor/informacion-profesor.module').then( m => m.InformacionProfesorPageModule)
+    loadChildren: () => import('./site/pages/recopilacion/informacion-profesor/informacion-profesor.module').then( m => m.InformacionProfesorPageModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'site/informacion-clase',
-    loadChildren: () => import('./site/pages/recopilacion/informacion-clase/informacion-clase.module').then( m => m.InformacionClasePageModule)
+    loadChildren: () => import('./site/pages/recopilacion/informacion-clase/informacion-clase.module').then( m => m.InformacionClasePageModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'site/views/profesors',
-    loadChildren: () => import('./site/pages/views/profesors/profesors.module').then( m => m.ProfesorsPageModule)
+    loadChildren: () => import('./site/pages/views/profesors/profesors.module').then( m => m.ProfesorsPageModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'site/views/courses',
-    loadChildren: () => import('./site/pages/views/courses/courses.module').then( m => m.CoursesPageModule)
+    loadChildren: () => import('./site/pages/views/courses/courses.module').then( m => m.CoursesPageModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'site/views/classrooms',
-    loadChildren: () => import('./site/pages/views/classrooms/classrooms.module').then( m => m.ClassroomsPageModule)
+    loadChildren: () => import('./site/pages/views/classrooms/classrooms.module').then( m => m.ClassroomsPageModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'site/forgot-password',
+    loadChildren: () => import('./site/pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'site/informacion-comunicado',
+    loadChildren: () => import('./site/pages/recopilacion/informacion-comunicado/informacion-comunicado.module').then( m => m.InformacionComunicadoPageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   }
+
+
 
 
 

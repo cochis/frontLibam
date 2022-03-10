@@ -86,6 +86,10 @@ export class FunctionService {
       localStorage.removeItem('usuario');
 
     }
+    if (localStorage.getItem('Role')) {
+      localStorage.removeItem('Role');
+
+    }
 
 
   }

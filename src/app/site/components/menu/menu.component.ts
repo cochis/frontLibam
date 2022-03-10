@@ -17,10 +17,13 @@ export class MenuComponent implements OnInit {
     private router: ActivatedRoute) { }
 
   ngOnInit() {
+    this.role = localStorage.getItem('Role');
+    console.log(this.role)
+  //   setTimeout(function(){
+     
 
-    setTimeout(function(){
-      this.role = localStorage.getItem('Role');
-   }, 2000);//wait 2 seconds
+
+  //  }, 7000);//wait 2 seconds
    }
 
 

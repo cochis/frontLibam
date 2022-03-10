@@ -1,0 +1,116 @@
+<app-headerSite style=" text-align: center; width: 100%;" [titulo]="text"></app-headerSite>
+
+
+<ion-content class="center" (window:resize)="onResize($event)">
+
+
+  <ion-col class="center">
+    <ion-card>
+      <ion-card-header>
+        <h4 class="theme" style="text-align:center">
+          {{text}}
+        </h4>
+
+      </ion-card-header>
+      <ion-card-content>
+
+        <form size="12" autocomplete="off" [formGroup]="formComunicate" (ngSubmit)="onSubmit()"
+          style="  margin:auto; border-radius:20px; padding:25px;  box-shadow: 5px 10px #888888;"
+          enctype="multipart/form-data">
+
+          <!-- Informacion personal  -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Información General</ion-card-title>
+            </ion-card-header>
+            <ion-row>
+              <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                <ion-label position="floating">Fecha de creacion</ion-label>
+                <ion-datetime display-format="DD MMMM YYYY" formControlName="createDate" [disabled]="disabled"
+                  [readonly]="true"></ion-datetime>
+              </ion-col>
+            </ion-row>
+
+          </ion-card>
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Información de comunicado</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-row>
+
+              </ion-row>
+              <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                <ion-label position="floating">Titulo</ion-label>
+                <ion-input class="form-control" type="text" placeholder="Ingrese el titulo del comunicado-*          "
+                  formControlName="title" [disabled]="disabled" [readonly]="readonly">
+                </ion-input>
+
+              </ion-col>
+              <ion-row>
+
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Descripción</ion-label>
+                  <ion-input class="form-control" type="text" placeholder="Ingrese descripcion"
+                    formControlName="description" [disabled]="disabled" [readonly]="readonly">
+                  </ion-input>
+
+                </ion-col>
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+                  <ion-label position="floating">Activado</ion-label>
+                  <ion-toggle color="primary" formControlName="actived" [disabled]="disabled"></ion-toggle>
+                </ion-col>
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+                  <ion-label position="floating">Imagen o archivo</ion-label>
+                  <ion-toggle color="primary" formControlName="show" [disabled]="disabled"></ion-toggle>
+                </ion-col>
+                <ion-col size="12" size-md="6" class="fleft tjustify ">
+
+                  <ion-label position="floating">Archivo</ion-label>
+
+                  <ion-input type="file" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.pdf" id="upload"
+                    formControlName="file" (change)="uploadFile($event)" multiple></ion-input>
+
+                  <!-- <ion-input class="form-control" type="file"  
+                    formControlName="file" [disabled]="disabled" [readonly]="readonly" (ionChange)="uploadFile( $event )">
+                  </ion-input> -->
+
+                </ion-col>
+
+                <ion-col size="12">
+                  <ion-label>Hola</ion-label>
+                  <img src="{{fileView}}" *ngIf="imgView && fileView!== '' ">
+
+
+                  <iframe [src]="fileView" frameBorder="0" scrolling="auto" height="100%" width="100%"
+                    *ngIf="pdfView"></iframe>
+                </ion-col>
+              </ion-row>
+
+
+
+
+            </ion-card-content>
+          </ion-card>
+
+          <ion-row>
+            <ion-col>
+              <ion-button color="secondary" type="submit" expand="block" *ngIf="type === 'Register'">Registrar
+              </ion-button>
+              <ion-button color="secondary" expand="block" *ngIf="type === 'View'"
+                (click)="navigateTo('site/views/profesors')">Salir</ion-button>
+              <ion-button color="secondary" (click)="updateProfesor()" expand="block" *ngIf="type === 'Edit'">Editar
+              </ion-button>
+              <ion-button color="danger" [routerLink]="['/site/views/profesors']" expand="block">Salir</ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-content>

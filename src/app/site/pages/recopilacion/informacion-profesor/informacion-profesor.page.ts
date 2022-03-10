@@ -159,6 +159,7 @@ export class InformacionProfesorPage implements OnInit {
     let password = 'ProfLibam2022';
     console.log('password', password)
     let type = this.formProfesor.value.type;
+    console.log('type', type)
     try {
       await this.authService.SignUp(email, password, type).then(user => {
         if (user) {
