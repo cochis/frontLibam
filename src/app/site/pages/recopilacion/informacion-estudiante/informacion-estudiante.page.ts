@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StudentModel } from 'src/app/site/models/estudent.model';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { FunctionService } from 'src/app/services/functions';
 import { UsuarioModel } from 'src/app/site/models/usuario.model';
 import { FirebaseService } from 'src/app/site/services/firebase.service';
@@ -21,11 +21,11 @@ export class InformacionEstudiantePage implements OnInit {
   id:'';
   usuario: UsuarioModel;
   estudiante: StudentModel;
-  formStudent: FormGroup;
+  formStudent: UntypedFormGroup;
   dateToday: Date = new Date();
 
   constructor(private activatedRoute: ActivatedRoute,
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
     private functionService: FunctionService,
     public authService: FirebaseService,
     public bdService: FirebasebdService

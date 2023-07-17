@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import * as SecureLS from 'secure-ls';
 import { UsuarioModel } from '../../models/usuario.model';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { FirebaseService } from '../../services/firebase.service';
 @Component({
   selector: 'app-register',
@@ -13,9 +13,9 @@ import { FirebaseService } from '../../services/firebase.service';
 export class RegisterPage implements OnInit {
   public flagScreen: boolean = false;
   usuario: UsuarioModel;
-  formRegistration: FormGroup;
+  formRegistration: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder,
+  constructor(public fb: UntypedFormBuilder,
     public authService: FirebaseService) {
     this.crearFormulario();
     this.cargarDataAlFormulario();

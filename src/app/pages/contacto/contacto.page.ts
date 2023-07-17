@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { FunctionService } from '../../services/functions';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { AlertController } from '@ionic/angular';
@@ -13,7 +13,7 @@ import { Title } from '@angular/platform-browser';
 })
 
 export class ContactoPage implements OnInit {
-  public contactoForm: FormGroup;
+  public contactoForm: UntypedFormGroup;
   contact = {
     user_name: '',
     user_email: '',
@@ -131,11 +131,11 @@ export class ContactoPage implements OnInit {
   }
 
   buildForm() {
-    this.contactoForm = new FormGroup({
-      user_name: new FormControl('', Validators.required),
-      user_email: new FormControl('', Validators.required),
+    this.contactoForm = new UntypedFormGroup({
+      user_name: new UntypedFormControl('', Validators.required),
+      user_email: new UntypedFormControl('', Validators.required),
       // phone: new FormControl(''),
-      message: new FormControl('')
+      message: new UntypedFormControl('')
     });
   }
 

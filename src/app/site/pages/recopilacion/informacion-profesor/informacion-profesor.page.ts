@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FunctionService } from 'src/app/services/functions';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { ProfesorModel } from 'src/app/site/models/profesor.model';
 import { UsuarioModel } from 'src/app/site/models/usuario.model';
 import { FirebaseService } from 'src/app/site/services/firebase.service';
@@ -21,10 +21,10 @@ export class InformacionProfesorPage implements OnInit {
   readEmail = false;
   usuario: UsuarioModel;
   profesor: ProfesorModel;
-  formProfesor: FormGroup;
+  formProfesor: UntypedFormGroup;
   dateToday: Date = new Date();
   constructor(private activatedRoute: ActivatedRoute,
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
     private functionService: FunctionService,
     public authService: FirebaseService,
     public bdService: FirebasebdService) {

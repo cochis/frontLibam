@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { FunctionService } from 'src/app/services/functions';
 import { FirebaseService } from 'src/app/site/services/firebase.service';
 import { FirebasebdService } from 'src/app/site/services/firebasebd.service';
@@ -18,7 +18,7 @@ export class ProfesorsPage implements OnInit {
   typeSearch = '';
   textoBuscar: string = '';
   constructor(
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
     private functionService: FunctionService,
     public authService: FirebaseService,
     public database: FirebasebdService) { }

@@ -4,7 +4,7 @@ import * as SecureLS from 'secure-ls';
 import { DataService } from '../../../services/data.service';
 import { Router } from '@angular/router';
 import { FunctionService } from '../../../services/functions';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { FirebaseService } from '../../services/firebase.service';
 import { UsuarioModel } from '../../models/usuario.model';
 @Component({
@@ -16,11 +16,11 @@ export class LoginPage implements OnInit {
   flagScreen: boolean = false;
   ls = new SecureLS({ encodingType: 'aes' });
   usuario: UsuarioModel;
-  formLogin: FormGroup;
+  formLogin: UntypedFormGroup;
 
    
   constructor(
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
     public authService: FirebaseService,
     private functionService: FunctionService) {
     if (screen.width > 780) {

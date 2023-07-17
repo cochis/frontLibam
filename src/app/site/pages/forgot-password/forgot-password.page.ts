@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import * as SecureLS from 'secure-ls';
 import { FunctionService } from 'src/app/services/functions';
 import { UsuarioModel } from '../../models/usuario.model';
@@ -13,9 +13,9 @@ export class ForgotPasswordPage implements OnInit {
   flagScreen: boolean = false;
   ls = new SecureLS({ encodingType: 'aes' });
   usuario: UsuarioModel;
-  formPassword: FormGroup;
+  formPassword: UntypedFormGroup;
   constructor(
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
     public authService: FirebaseService,
     private functionService: FunctionService) {
     if (screen.width > 780) {

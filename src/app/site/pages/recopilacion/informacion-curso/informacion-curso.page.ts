@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute } from '@angular/router';
 import { FunctionService } from 'src/app/services/functions';
 import { CursoModel } from 'src/app/site/models/curso.model';
@@ -27,7 +27,7 @@ export class InformacionCursoPage implements OnInit {
   curso: any;
   cursoData: any;
   profesors: any;
-  formCourse: FormGroup;
+  formCourse: UntypedFormGroup;
   dateToday: Date = new Date();
   inStudents: false;
   typeSearch = '';
@@ -36,7 +36,7 @@ export class InformacionCursoPage implements OnInit {
   @ViewChild(IonDatetime, { static: true }) datetime: IonDatetime;
 
   constructor(private activatedRoute: ActivatedRoute,
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
     private functionService: FunctionService,
     public authService: FirebaseService,
     public bdService: FirebasebdService,
